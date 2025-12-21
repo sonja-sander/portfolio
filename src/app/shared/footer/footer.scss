@@ -1,0 +1,25 @@
+@use "../../../../public/assets/styles/all-styles.scss" as all;
+
+footer{
+    @include all.grid($rows: repeat(3, 1fr));
+    background-color: all.$primary-color;
+    >*{
+        padding: 0.8rem 0;
+    }
+
+    a{
+        place-self: center;
+    }
+
+    nav{
+        place-self: center;
+        ul{
+            @include all.flex($gap: 2.4rem);
+        }
+    }
+    
+    div{
+        @include all.flex($jc: space-around);
+        color: black;
+    }
+}

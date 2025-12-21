@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@use "../public/assets/styles/all-styles.scss" as all;
+
+/* latin */
+@font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: swap;
+    src: url(../public/assets/fonts/josefin-sans-regular.woff2) format('woff2');
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    font-family: "Josefin Sans", sans-serif;
+    background-color: all.$background-color;
+    color: white;
+    font-size: 16px;
+}
+
+.layout{
+    @include all.grid($columns: 5% 1fr 5%);
+}
+
+.layout > *{
+    grid-column: 2;
+}
+
+button{
+    cursor: pointer;
+}
+

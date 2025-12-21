@@ -1,0 +1,21 @@
+* {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    border: initial;
+    background-color: initial; 
+}
+
+$background-color: #262e34;
+$primary-color: #89bcd9;
+$secondary-color: #F8F5EC; 
+$inactive-color: #262E341F;
+$error-color: #E44C36;
+$done-color: #97E163;
