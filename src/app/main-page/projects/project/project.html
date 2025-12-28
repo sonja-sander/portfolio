@@ -1,1 +1,29 @@
-<p>project works!</p>
+<article class = "layout">
+    <div class="project-img">
+        <h3>{{project.name}}</h3>
+        <p>technologies: {{project.technologiesNames.join(", ")}}</p>
+        <p>Duration: {{project.duration}}</p>
+        <img src="{{project.image}}" alt="{{project.name}}">
+    </div>
+    <div class="project-text">
+        <div>
+            <img src="assets/icons/projects/project-list-shape.svg" alt="">
+            <h4>About the project</h4>
+        </div>
+        <p>{{project.about}}</p>
+        <div>
+            <img src="assets/icons/projects/project-list-shape.svg" alt="">
+            <h4>How I have organised my work</h4>
+        </div>
+        <p>{{project.organisation}}</p>
+        <div>
+            <img src="assets/icons/projects/project-list-shape.svg" alt="">
+            <h4>My group work experience</h4>
+        </div>
+        <p>{{project.groupWork}}</p>
+    </div>
+    <div class="project-links">
+        <a class="primary-btn" href="">Live Test</a>
+        <a class="secondary-btn" href="">GitHub</a>
+    </div>
+</article>

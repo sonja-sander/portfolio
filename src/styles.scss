@@ -10,6 +10,30 @@
     src: url(../public/assets/fonts/josefin-sans-regular.woff2) format('woff2');
 }
 
+/* latin */
+@font-face {
+    font-family: 'Anta';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../public/assets/fonts/anta-regular.woff2) format('woff2');
+}
+
+* {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    border: initial;
+    background-color: initial; 
+}
+
 html{
     font-size: 10px;
 }
@@ -33,3 +57,79 @@ button{
     cursor: pointer;
 }
 
+a{
+    color: all.$primary-color;
+
+    &:hover{
+        color: all.$secondary-color;
+    }
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: all.$primary-color;
+    font-family: "Anta", sans-serif;
+}
+
+h1{
+    font-size: 4.8rem;
+}
+
+h2{
+    font-size: 3.2rem;
+}
+
+h3{
+    font-size: 2.4rem;
+}
+
+h4{
+    font-size: 2rem;
+}
+
+p{
+    line-height: 1.2;
+}
+
+.legal-page-article {
+    width: 100%;
+    max-width: 1440px;
+    padding: 5rem 0;
+    -webkit-hyphens: auto; 
+    hyphens: auto;
+
+    h1 {
+        padding: 0 0 16px;
+    }
+    h2 {
+        margin: 24px 0 0;
+    }
+    h3,
+    h4 {
+        margin-top: 16px;
+    }
+    ul {
+        padding-left: 24px;
+    }
+    p {
+        margin-top: 8px;
+    }
+    li{
+        list-style: square;
+    }
+}
+
+.primary-btn{
+    background-color: all.$primary-color;
+    border: 1px solid all.$primary-color;
+    border-radius: 24px;
+    padding: 0.8rem 1.6rem;
+    color: all.$background-color;
+}
+
+.secondary-btn{
+    background-color: all.$background-color;
+    border: 1px solid all.$primary-color;
+    border-radius: 24px;
+    padding: 0.8rem 1.6rem;
+    color: all.$primary-color;
+}

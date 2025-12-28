@@ -6,11 +6,15 @@
     gap: $gap;
 }
 
-@mixin grid($rows: null, $columns: null, $gap: null, $row-gap: null, $column-gap: null) {
+@mixin grid($rows: null, $columns: null, $gap: null, $row-gap: null, $column-gap: null, $ji: null, $ai: null, $jc: null, $ac: null) {
     display: grid;
     grid-template-rows: $rows;
     grid-template-columns: $columns;
     gap: $gap;
     row-gap: $row-gap;
     column-gap: $column-gap;
+    justify-items: $ji;
+    align-items: $ai;
+    justify-content: $jc;
+    align-content: $ac;
 }

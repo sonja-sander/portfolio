@@ -1,0 +1,42 @@
+@use "../../../../public/assets/styles/all-styles.scss" as all;
+
+section{
+    @include all.grid($rows: repeat(5, auto), $row-gap: 1.6rem, $ji: center, $ai: center);
+    margin: 1.6rem 0;
+    text-align: center;
+
+    // @include all.desktop{
+    //     @include all.grid($rows: repeat(4, 1fr), $columns: 50% 1fr 1fr 1fr);
+    // }
+
+    .skill-icons{
+        @include all.flex($gap: 4rem);
+        flex-wrap: wrap;
+    }
+
+    .currently-learning-title{
+        color: all.$primary-color;
+    }
+
+    .currently-learning-content{
+        @include all.grid($columns: 50% 50%, $ai: center);
+        
+        p{
+            text-align: left;
+        }
+
+        div{
+            .skills-bg-shape{
+                width: 80%;
+            }
+
+            div{
+                @include all.flex($gap: 0.8rem);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}

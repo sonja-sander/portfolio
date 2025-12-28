@@ -1,0 +1,35 @@
+@use "../../../../../public/assets/styles/all-styles.scss" as all;
+
+article{
+    @include all.grid($row-gap: 1.6rem);
+    text-align: left;
+
+    .project-img{
+        @include all.grid();
+        img{
+            width: 80%;
+            border-radius: 24px;
+            place-self: center;
+        }
+    }
+
+    .project-text{
+        div{
+            @include all.flex($jc: flex-start, $gap: 0.8rem);
+            margin: 0.8rem 0;
+            width: 100%;
+
+            >img{
+                height: 2rem;
+            }
+
+            >h4{
+                font-size: initial;
+            }
+        }
+    }
+
+    .project-links{
+        @include all.flex($gap: 1.6rem);
+    }
+}

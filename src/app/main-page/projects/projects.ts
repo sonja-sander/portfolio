@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Project } from './project/project';
+import { ProjectsData } from '../../services/projects-data';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [Project],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
 export class Projects {
-
+  projectsDataService = inject(ProjectsData);
 }

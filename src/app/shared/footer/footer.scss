@@ -1,8 +1,12 @@
 @use "../../../../public/assets/styles/all-styles.scss" as all;
 
 footer{
-    @include all.grid($rows: repeat(3, 1fr));
+    @include all.grid($rows: 1fr 0.5fr 0.5fr);
+    // align-items: center;
+    // justify-items: center;
+    padding: 1.6rem 0;
     background-color: all.$primary-color;
+
     >*{
         padding: 0.8rem 0;
     }
@@ -20,6 +24,10 @@ footer{
     
     div{
         @include all.flex($jc: space-around);
-        color: black;
+        color: all.$background-color;
+
+        >a{
+            color: all.$background-color;
+        }
     }
 }
