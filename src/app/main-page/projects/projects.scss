@@ -1,7 +1,7 @@
 @use "../../../../public/assets/styles/all-styles.scss" as all;
 
 section{
-    @include all.grid($rows: auto auto auto, $ji: center, $ai: center);
+    @include all.grid($ji: center, $ai: center);
     margin: 1.6rem 0;
     text-align: center;
     // width: 100%;
@@ -11,7 +11,7 @@ section{
     // }
 
     nav{
-        @include all.flex($jc: space-between);
+        @include all.flex();
         width: 100%;
 
         >button{
@@ -19,7 +19,7 @@ section{
             border-radius: 12px 12px 0 0;
         }
 
-        .one{
+        .active{
             background-color: #2d383f;
         }
     }

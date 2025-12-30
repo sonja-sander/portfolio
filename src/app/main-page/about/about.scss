@@ -1,7 +1,7 @@
 @use "../../../../public/assets/styles/all-styles.scss" as all;
 
 section{
-    @include all.grid($rows: 1fr 1fr 1fr, $row-gap: 1.6rem, $jc: center, $ai: center);
+    @include all.grid($row-gap: 1.6rem, $jc: center, $ai: center);
     margin: 1.6rem 0;
     text-align: center;
 

@@ -9,5 +9,4 @@ import { ProjectInterface } from '../../../interfaces/project-interface';
 })
 export class Project {
   @Input() project!: ProjectInterface;
-
 }

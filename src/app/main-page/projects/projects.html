@@ -1,16 +1,16 @@
 <section>
     <h2>My Projects</h2>
     <nav>
-        <button class="one">1. Project</button>
-        <button>2. Project</button>
-        <button>3. Project</button>
-        <button>4. Project</button>
+        @for (singleProject of projectsDataService.projectsList; track $index) {
+            <button 
+                (click)="activateTab($index)"
+                [class.active]="activeTabIndex === $index">
+                {{$index+1}}. Project
+            </button>
+        }
     </nav>
     <div>
-        @for (singleProject of projectsDataService.projectsList; track $index) {
-            
-            <app-project [project] = "singleProject"></app-project>
-        }
+        <app-project [project] = "projectsDataService.projectsList[activeTabIndex]"></app-project>
     </div>
 </section>
 

@@ -1,0 +1,22 @@
+@use "../../../../../public/assets/styles/all-styles.scss" as all;
+
+article{
+    @include all.grid();
+    min-width: 290px;
+
+        
+    >img{
+        grid-area: 1/1/2/2;
+        width: 100%;
+    }
+
+    >div{
+        grid-area: 1/1/2/2;
+        width: 70%;
+        place-self: center;
+
+        >h3, h3, p{
+            font-family: "Josefin Sans", sans-serif;
+        }
+    }
+}

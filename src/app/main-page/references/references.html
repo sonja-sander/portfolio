@@ -4,23 +4,8 @@
         <p>Here's what my colleagues said about me</p>
     </div>
     <div class="references-container">
-        <div>
-            <img src="assets/img/references-shape.png" alt="">
-            <div>
-                <h3>Sarah Muller</h3>
-                <h4>Project Join</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, accusamus.</p>
-                <p>LinkedIn Profile</p>
-            </div>
-        </div>
-        <div>
-            <img src="assets/img/references-shape.png" alt="">
-            <div>
-                <h3>Anna Bauer</h3>
-                <h4>Project Hi</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, accusamus.</p>
-                <p>LinkedIn Profile</p>
-            </div>
-        </div>
+        @for (singleReference of referencesDataService.referencesList; track $index) {
+            <app-reference [reference]="singleReference"></app-reference>
+        }
     </div>
 </section>
