@@ -1,9 +1,13 @@
-<article>
-    <img src="assets/img/references-shape.png" alt="">
-    <div>
+<article class="reference">
+    <img class="mobile-shape mobile-only" src="assets/img/references-shape-mobile.svg" alt="" aria-hidden="true">
+    <div class="ref-shape-wrapper desktop-only" aria-hidden="true">
+        <img class="ref-shape shape-normal desktop-only" src="assets/img/references-shape.png" alt="" aria-hidden="true">
+        <img class="ref-shape shape-hover desktop-only" src="assets/img/references-shape-hover.png" alt="" aria-hidden="true">
+    </div>
+    <div class="ref-content">
         <h3>{{reference.colleagueName}}</h3>
-        <h4>Project {{reference.project}}</h4>
-        <p>"{{reference.referenceText}}"</p>
-        <a href="{{reference.link}}">LinkedIn Profile</a>
+        <h4><span>{{'references.project' | translate}}</span> {{reference.project}}</h4>
+        <p>"{{reference.referenceTextKey | translate}}"</p>
+        <a href="{{reference.link}}">LinkedIn {{'references.profile' | translate}}</a>
     </div>
 </article>

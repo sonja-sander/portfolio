@@ -1,39 +1,48 @@
-<article class="layout">
-    <div class="project-img">
-        <h3>{{project.name}}</h3>
-        <p>Technologies: {{project.technologiesNames.join(", ")}}</p>
-        <p>Duration: {{project.duration}}</p>
-        <img src="{{project.image}}" alt="{{project.name}}">
-    </div>
-    <div class="project-text">
-        <div>
-            <img src="assets/icons/projects/project-list-shape.svg" alt="">
-            <h4>About the project</h4>
-        </div>
-        <p>{{project.about}}</p>
-        @if(!project.isOngoingProject){
-            <div>
-                <img src="assets/icons/projects/project-list-shape.svg" alt="">
-                <h4>How I have organised my work</h4>
+<div class="layout">
+    <article>
+        <div class="project-img">
+            <h3 class="mobile-only">{{project.nameKey | translate}}</h3>
+            <p class="mobile-only">{{'projects.technologies' | translate}}: {{project.technologiesNames.join(", ")}}</p>
+            <p class="desktop-only">{{'projects.technologies' | translate}}</p>
+            <div class="technology-images desktop-only">
+                @for (image of project.technologiesImages; track $index) {
+                    <img class="desktop-only" src="{{image}}" alt="" aria-hidden="true">
+                }
             </div>
-            <p>{{project.organisation}}</p>
-            @if(project.wasGroupProject){
-                <div>
-                    <img src="assets/icons/projects/project-list-shape.svg" alt="">
-                    <h4>My group work experience</h4>
+            <p class="mobile-only">{{'projects.duration' | translate}}: {{project.durationKey | translate}}</p>
+            <img src="{{project.image}}" alt="{{project.nameKey | translate}}">
+        </div>
+        <div class="project-text">
+            <div class="info-heading">
+                <img src="assets/icons/projects/project-list-shape.svg" alt="" aria-hidden="true">
+                <h4>{{'projects.about-title' | translate}}</h4>
+                <p class="desktop-only">{{'projects.duration' | translate}}: {{project.durationKey | translate}}</p>
+            </div>
+            <p>{{project.aboutKey | translate}}</p>
+            @if(!project.isOngoingProject){
+                <div class="info-heading">
+                    <img src="assets/icons/projects/project-list-shape.svg" alt="" aria-hidden="true">
+                    <h4>{{'projects.organisation-title' | translate}}</h4>
                 </div>
-                <p>{{project.groupWork}}</p>
-            } @else {
-                <div>
-                    <img src="assets/icons/projects/project-list-shape.svg" alt="">
-                    <h4>What I have learnt</h4>
-                </div>
-                <p>{{project.learnings}}</p>
+                <p>{{project.organisationKey | translate}}</p>
+                @if(project.wasGroupProject){
+                    <div class="info-heading">
+                        <img src="assets/icons/projects/project-list-shape.svg" alt="" aria-hidden="true">
+                        <h4>{{'projects.groupWork-title' | translate}}</h4>
+                    </div>
+                    <p>{{project.groupWorkKey | translate}}</p>
+                } @else {
+                    <div class="info-heading">
+                        <img src="assets/icons/projects/project-list-shape.svg" alt="" aria-hidden="true">
+                        <h4>{{'projects.learnings-title' | translate}}</h4>
+                    </div>
+                    <p>{{project.learningsKey | translate}}</p>
+                }
             }
-        }
-    </div>
-    <div class="project-links">
-        <a class="primary-btn" href="">Live Test</a>
-        <a class="secondary-btn" href="">GitHub</a>
-    </div>
-</article>
+        </div>
+        <div class="project-links">
+            <a class="primary-btn" href="">Live Test</a>
+            <a class="secondary-btn" href="">GitHub</a>
+        </div>
+    </article>
+</div>

@@ -1,10 +1,282 @@
 @use "../../../../public/assets/styles/all-styles.scss" as all;
 
-section{
-    background-color: all.$primary-color;
-    padding: 0.8rem 0;
+section {
+  height: 100%;
+  width: 100%;
+  background-color: all.$primary-color;
+  @include all.flex();
 
-    .content{
-        @include all.flex($jc: space-between);
+  .layout {
+    @include all.desktop {
+      @include all.grid($columns: 8% 1fr 8%);
     }
+
+    .content {
+      @include all.flex($jc: space-between);
+
+      .logo {
+        align-self: flex-end;
+
+        >img {
+          height: 65px;
+          width: auto;
+        }
+      }
+
+      .desktop-nav {
+        ul {
+          @include all.flex($gap: 6.5rem);
+
+          li {
+            &::before {
+              content: '';
+              position: absolute;
+              inset: -1.8rem -1.5rem;
+              background-image: url('../../../../public/assets/img/navitem-hover.svg');
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              opacity: 0;
+              transform: scale(0.9);
+              transition-property: opacity, transform;
+              transition-duration: 200ms, 200ms;
+              transition-timing-function: ease, ease;
+              z-index: 0;
+              pointer-events: none;
+
+              @include all.desktop {
+                inset: -1rem -1.5rem;
+              }
+            }
+
+            &.is-active::before {
+              opacity: 1;
+              transform: scale(1);
+            }
+
+            >a {
+              color: all.$background-color;
+              font-size: 22px;
+              z-index: 1;
+
+              &:hover {
+                color: all.$secondary-color;
+              }
+            }
+
+            &.is-active {
+              >a {
+                color: all.$secondary-color;
+              }
+            }
+          }
+        }
+      }
+
+      .language-switch {
+        @include all.flex($gap: 0.8rem);
+        z-index: 10;
+
+        @include all.notebook {
+          display: none;
+        }
+
+        >button {
+          font-size: initial;
+          z-index: 2;
+          color: all.$background-color;
+
+          &:hover {
+            color: all.$secondary-color;
+          }
+
+          &.is-active {
+            color: all.$secondary-color;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: -0.7rem -0.8rem;
+              background: url('../../../../public/assets/img/navitem-hover.svg') center / contain no-repeat;
+              z-index: -1;
+              pointer-events: none;
+
+              @include all.desktop {
+                inset: -0.1rem -0.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
+
+// #region Mobile menu dialog
+dialog {
+  margin: 16.5dvh auto 0;
+  position: revert;
+
+  @media (min-width: 600px) {
+    height: 70dvh;
+    width: 60dvw;
+  }
+
+  &:not([open]) {
+    display: none;
+  }
+
+  &.opened {
+    background: transparent;
+  }
+
+  .dialog-content {
+    @include all.grid();
+
+    >img {
+      grid-area: 1 / 1 / 2 / 2;
+      width: 100%;
+    }
+
+    >nav {
+      grid-area: 1 / 1 / 2 / 2;
+      place-self: center;
+
+      ul {
+        @include all.flex($fd: column, $gap: 2.4rem);
+
+        li {
+          >a {
+            color: all.$background-color;
+            font-size: 2.4rem;
+            z-index: 2;
+          }
+
+          &.is-active {
+            >a {
+              color: all.$secondary-color;
+            }
+          }
+        }
+      }
+
+      .language-switch {
+        @include all.flex($gap: 0.8rem);
+        z-index: 10;
+
+        button {
+          z-index: 2;
+          font-size: 2.4rem;
+          color: all.$background-color;
+
+          &.is-active {
+            color: all.$secondary-color;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: -0.7rem -0.8rem;
+              background: url('../../../../public/assets/img/navitem-hover.svg') center / contain no-repeat;
+              z-index: -1;
+              pointer-events: none;
+            }
+          }
+
+          &:hover {
+            &.is-active {
+              color: all.$secondary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &[open] {
+    .dialog-content {
+      animation-name: dialogFadeIn;
+      animation-timing-function: ease-in;
+      animation-duration: 500ms;
+    }
+  }
+
+  &::backdrop {
+    background: transparent;
+  }
+}
+
+@keyframes dialogFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+// #endregion
+
+// #region Burger menu in mobile navbar
+.mobile-nav {
+  cursor: pointer;
+
+  .burger-icon {
+    width: 35px;
+    height: 32px;
+    display: block;
+  }
+
+  .line {
+    stroke: all.$background-color;
+    stroke-width: 2;
+    stroke-linecap: round;
+    fill: none;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition-property: transform, opacity, stroke-width;
+    transition-duration: 100ms, 80ms, 100ms;
+    transition-timing-function: ease, ease, ease;
+  }
+
+  .line1 {
+    transform: translateY(0) rotate(0);
+  }
+
+  .line2 {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  .line3 {
+    transform: translateY(0) rotate(0);
+  }
+
+  &.is-open {
+    .line2 {
+      transform: scaleX(0.55);
+      transition-duration: 40ms;
+      transition-delay: 0ms;
+    }
+
+    .line1 {
+      stroke-width: 3;
+      transform: translateY(14px) translateX(1.5px) rotate(45deg);
+      transition-delay: 40ms;
+    }
+
+    .line3 {
+      stroke-width: 3;
+      transform: translateY(-14px) translateX(1.5px) rotate(-45deg);
+      transition-delay: 40ms;
+    }
+
+    .line2 {
+      transform: scaleX(0.18);
+      transition-property: transform, opacity;
+      transition-duration: 40ms, 40ms;
+      transition-delay: 40ms, 80ms;
+      opacity: 0;
+    }
+  }
+}
+// #endregion

@@ -1,84 +1,173 @@
 @use "../../../../public/assets/styles/all-styles.scss" as all;
 
-section{
-    @include all.grid($row-gap: 1.6rem, $jc: center, $ai: center);
-    margin: 1.6rem 0;
+.layout {
+    @include all.desktop {
+        display: block;
+    }
+}
 
-    @include all.desktop{
-        @include all.grid($rows: repeat(4, 1fr), $columns: 50% 1fr 1fr 1fr);
+section {
+    @include all.flex($fd: column, $jc: flex-start);
+    height: calc(100dvh - all.$navbar-height);
+    max-width: 1440px;
+
+    @media (min-width: 600px) {
+        justify-content: center;
     }
 
-    >.hero-img{
-        grid-row: 1/4;
-        @include all.desktop{
-            grid-area: 1/1/5/2;
-        }
-
-        >img{
-            height: auto;
-            width: 100%;
-        }
-
-        >.photo{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 100%;
-            width: auto;
-        }
+    @include all.desktop {
+        @include all.grid($rows: 1fr 1fr 1fr, $columns: 8% 42% 42% 8%);
     }
 
-    .logo{
-        display: none;
-        @include all.desktop{
-            display: block;
-            grid-area: 1/3/2/4;
-            justify-self: center;
+    .images-wrapper {
+        padding-top: 2rem;
+
+        @include all.desktop {
+            grid-area: 2/2/5/3;
             align-self: end;
+            @include all.grid();
+            margin-bottom: -18px;
         }
-    }
 
-    .social{
-        display: none;
-        @include all.desktop{
-            display: block;
-            grid-area: 1/4/2/5;
-            justify-self: end;
-            align-self: center;
+        .bg-shape-wrapper {
+            grid-area: 1/1/2/2;
+            place-self: center;
+            pointer-events: none;
+            @include all.grid();
 
-            >a{
-                display: block;
+            >.bg-shape {
+                grid-area: 1/1;
+                height: clamp(250px, 60dvh, 600px);
+                width: auto;
+                max-width: 100%;
+                object-fit: contain;
+                transition: opacity 400ms ease, transform 400ms ease;
+                margin-bottom: -18px;
+
+                @include all.desktop {
+                    height: 100%;
+                }
+            }
+
+            >.shape-hover {
+                opacity: 0;
+            }
+        }
+
+        >.img-wrapper {
+            >.photo {
+                height: clamp(300px, 50dvh, 700px);
+                width: auto;
+                max-width: 100%;
+                object-fit: contain;
+                place-self: center;
+            }
+
+            @include all.desktop {
+                grid-area: 1/1/2/2;
+                @include all.grid();
+                align-self: end;
+
+                >.photo {
+                    height: 100%;
+                    width: auto;
+                    max-width: 100%;
+                    object-fit: contain;
+                    align-self: end;
+                    justify-self: center;
+                }
+            }
+        }
+
+        &:hover {
+            .bg-shape-wrapper {
+                >.shape-hover {
+                    opacity: 1;
+                }
+
+                >.shape-normal {
+                    opacity: 0;
+                }
             }
         }
     }
 
-    >.title{
-        grid-row: 4/5;
-        text-align: center;
+    .logo-wrapper {
+        display: none;
 
-        @include all.desktop{
-            grid-area: 2/2/3/5;
+        @include all.desktop {
+            grid-area: 1/3/2/4;
+            justify-self: center;
+            align-self: end;
+            @include all.grid();
+            cursor: pointer;
+            pointer-events: auto;
         }
 
-        h1{
-            // font-size: 4.8rem;
-            // font-family: "Anta", sans-serif;
-            color: all.$secondary-color;
+        >.logo {
+            grid-area: 1/1/2/2;
+            height: 65px;
+            width: auto;
+            transition: opacity 250ms ease, transform 250ms ease;
         }
 
-        h2{
-            font-size: 2.4rem;
-            color: all.$secondary-color;
-            // font-family: "Josefin Sans", sans-serif;
+        >.logo-hover {
+            opacity: 0;
+        }
+
+        &:hover {
+            >.logo-hover {
+                opacity: 1;
+            }
+
+            >.logo-normal {
+                opacity: 0;
+            }
         }
     }
 
-    >button{
-        grid-row: 5/6;
+    .social {
+        display: none;
 
-        @include all.desktop{
-            grid-area: 3/2/5/5;
+        @include all.desktop {
+            display: block;
+            grid-area: 1/3/2/4;
+            justify-self: end;
+            align-self: end;
+            @include all.flex($fd: column, $gap: 0.8rem);
+        }
+    }
+
+    >.title {
+        text-align: center;
+        place-self: center;
+
+        @include all.desktop {
+            grid-area: 2/3/3/4;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            color: all.$secondary-color;
+            margin-bottom: 0.8rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: all.$secondary-color;
+            font-family: "Josefin Sans", sans-serif;
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    >a {
+        >img {
+            height: 80px;
+        }
+
+        @include all.desktop {
+            place-self: center;
+            grid-area: 3/3/4/4;
         }
     }
 }

@@ -1,22 +1,54 @@
 @use "../../../../public/assets/styles/all-styles.scss" as all;
 
-section{
-    @include all.grid($row-gap: 1.6rem);
-    margin: 1.6rem 0;
+section {
+    @include all.grid($row-gap: all.$gap-spacing);
+    padding: 4rem 0 2rem;
     text-align: left;
 
-    // @include all.desktop{
-    //     @include all.grid($rows: repeat(4, 1fr), $columns: 50% 1fr 1fr 1fr);
-    // }
+    @include all.desktop {
+        padding: 4rem 0 1rem;
+    }
 
-    .references-container{
-        @include all.flex($gap: 1.6rem, $jc: flex-start);
-        min-width: 100%;
-        min-height: 200px;
+    .layout {
+        @include all.desktop {
+            @include all.grid($columns: 8% 1fr 8%);
+        }
+
+        h2 {
+            margin-bottom: 0.8rem;
+
+            @include all.desktop {
+                text-align: center;
+                font-size: 24px;
+                letter-spacing: 0.4px;
+                font-weight: normal;
+                font-family: "Josefin Sans", sans-serif;
+                margin-bottom: 0.3rem;
+            }
+        }
+    }
+
+    .references-container {
+        @include all.flex($jc: flex-start, $gap: 1.6rem);
+        width: 100%;
+        max-width: 100%;
         padding: 0 5%;
         overflow-x: auto;
+
         &::-webkit-scrollbar {
             display: none;
+        }
+
+        @include all.desktop {
+            @include all.grid($columns: repeat(3, minmax(0, 1fr)), $column-gap: 1.6rem);
+            overflow-x: visible;
+            padding: 0 8%;
+        }
+
+        >app-reference {
+            flex: 1 1 0;
+            min-width: 300px;
+            max-width: 100%;
         }
     }
 }

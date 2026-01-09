@@ -1,7 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
 @use "../public/assets/styles/all-styles.scss" as all;
 
-/* latin */
 @font-face {
     font-family: 'Josefin Sans';
     font-style: normal;
@@ -10,7 +8,6 @@
     src: url(../public/assets/fonts/josefin-sans-regular.woff2) format('woff2');
 }
 
-/* latin */
 @font-face {
     font-family: 'Anta';
     font-style: normal;
@@ -36,25 +33,70 @@
 
 html{
     font-size: 10px;
+
+    @include all.tablet-min{
+        font-size: 13px;
+    }
+
+    @include all.desktop{
+        font-size: 16px;
+    }
 }
 
 body{
     font-family: "Josefin Sans", sans-serif;
     background-color: all.$background-color;
-    color: white;
+    color: all.$secondary-color;
     font-size: 16px;
 }
 
+body:has(dialog[open]){
+    overflow: hidden
+}
+
+// #region Website Layout
+.content-wrapper{
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+}
+
 .layout{
-    @include all.grid($columns: 5% 1fr 5%);
+    @include all.grid($columns: 6% 1fr 6%);
 }
 
 .layout > *{
     grid-column: 2;
 }
+// #endregion
 
-button{
-    cursor: pointer;
+// #region Headings other element styling
+h1, h2, h3, h4, h5, h6{
+    color: all.$primary-color;
+    font-family: "Anta", sans-serif;
+}
+
+h1{
+    font-size: 4.8rem;
+    font-weight: normal;
+}
+
+h2{
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+h3{
+    font-size: 2.2rem;
+}
+
+h4{
+    font-size: 2rem;
+}
+
+p{
+    line-height: 1.2;
+    font-weight: 340;
 }
 
 a{
@@ -64,35 +106,10 @@ a{
         color: all.$secondary-color;
     }
 }
+// #endregion
 
-h1, h2, h3, h4, h5, h6{
-    color: all.$primary-color;
-    font-family: "Anta", sans-serif;
-}
-
-h1{
-    font-size: 4.8rem;
-}
-
-h2{
-    font-size: 3.2rem;
-}
-
-h3{
-    font-size: 2.4rem;
-}
-
-h4{
-    font-size: 2rem;
-}
-
-p{
-    line-height: 1.2;
-}
-
+// #region Legal pages
 .legal-page-article {
-    width: 100%;
-    max-width: 1440px;
     padding: 5rem 0;
     -webkit-hyphens: auto; 
     hyphens: auto;
@@ -117,19 +134,106 @@ p{
         list-style: square;
     }
 }
+// #endregion
+
+// #region Button styles
+button{
+    cursor: pointer;
+}
 
 .primary-btn{
     background-color: all.$primary-color;
     border: 1px solid all.$primary-color;
-    border-radius: 24px;
-    padding: 0.8rem 1.6rem;
     color: all.$background-color;
+    border-radius: 24px;
+    padding: 10px 20px;
+
+    &:hover{
+        background-color: all.$secondary-color;
+        border-color: all.$secondary-color;
+        color: all.$background-color;
+    }
 }
 
 .secondary-btn{
     background-color: all.$background-color;
     border: 1px solid all.$primary-color;
-    border-radius: 24px;
-    padding: 0.8rem 1.6rem;
     color: all.$primary-color;
+    border-radius: 24px;
+    padding: 10px 20px;
+    
+    &:hover{
+        background-color: rgba(248, 245, 236, 0.12);
+    }
 }
+
+.inactive-btn{
+    background-color: all.$background-color;
+    border: 1px solid all.$inactive-color;
+    color: all.$inactive-color;
+    border-radius: 24px;
+    padding: 10px 20px;
+}
+// #endregion
+
+// #region Above the fold and fragment jumps
+app-navbar{
+    position: sticky;
+    top:0;
+    z-index: 100;
+    height: all.$navbar-height;
+}
+
+app-hero{
+    height: calc(100dvh - all.$navbar-height);
+    max-height: calc(100dvh - all.$navbar-height);
+}
+
+.anchor{
+    position: absolute;
+    top: -(all.$navbar-height); 
+    height: 1px;
+    width: 1px;
+}
+// #endregion
+
+// #region Buttons image exchange on hover
+.icon-link{
+    display: inline-grid;
+}
+
+.icon-link .icon{
+    grid-area: 1 / 1 / 2/ 2;
+}
+
+.icon-hover{
+    display: none;
+}
+
+@include all.desktop{
+    .icon-link:hover .icon-normal,
+    .icon-link:focus-visible .icon-normal{
+        display: none;
+    }
+
+    .icon-link:hover .icon-hover,
+    .icon-link:focus-visible .icon-hover{
+        display: block;
+    }
+}
+// #endregion
+
+// #region Utility classes
+.desktop-only{
+    @include all.notebook{
+        display: none;
+    }
+}
+        
+.mobile-only{
+    @include all.desktop{
+        display: none;
+    }
+}
+// #endregion
+

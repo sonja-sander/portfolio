@@ -1,0 +1,234 @@
+{
+    "nav": {
+        "why-me": "Why me",
+        "skills": "Skills",
+        "projects": "Projects",
+        "contact": "Contact",
+        "german": "DE",
+        "english": "EN",
+        "aria": {
+            "home": "Go to homepage",
+            "toggleMenu": "Open or close menu",
+            "langDe": "Switch language to German",
+            "langEn": "Switch language to English"
+        }
+    },
+    "hero": {
+        "subtitle": "DEVELOPER",
+        "photoAlt": "Portrait photo of Sonja Sander",
+        "aria": {
+            "socialLinks": "Social links",
+            "github": "Open GitHub profile",
+            "email": "Send an email",
+            "scrollAbout": "Scroll to the About section"
+        }
+    },
+    "about": {
+        "title": "Why me",
+        "typing": {
+            "prefix": "I am",
+            "located": "located in Langen",
+            "remote": "open to work remotely",
+            "relocate": "open to relocate",
+            "ctaAria": "Scroll to contact section"
+        },
+        "description": "What fascinates me about programming is the ability to create tangible and interactive experiences through language.",
+        "cta": "Let's talk"
+    },
+    "skills": {
+        "title": "My Skills",
+        "learning-title": "What I am currently learning",
+        "learning-description": "3D visualizations for the web and the fundamentals of backend development.",
+        "cta": "Let's talk",
+        "scrollContact": "Scroll to contact section"
+    },
+    "projects": {
+        "title": "My Projects",
+        "tab-name": "Project",
+        "technologies": "Technolgies",
+        "duration": "Duration",
+        "about-title": "About the project",
+        "organisation-title": "How I have organised my work",
+        "groupWork-title": "My group work experience",
+        "learnings-title": "What I have learnt",
+        "project-1": {
+            "name": "El Pollo Loco",
+            "duration": "2 weeks",
+            "about": "A side-scrolling game where the character Pepe must defeat crazy chickens.",
+            "organisation": "I structured my workflow using class diagrams and a Kanban board.",
+            "groupWork": "",
+            "learnings": "I applied the basics of object-oriented programming in practice."
+        },
+        "project-2": {
+            "name": "Join",
+            "duration": "2 weeks",
+            "about": "A web-based project management tool for organizing tasks and team collaboration.",
+            "organisation": "The development process was planned with kanban.",
+            "groupWork": "This project was created in collaboration within a team.",
+            "learnings": ""
+        },
+        "ongoing-project": {
+            "name": "Ongoing Project",
+            "duration": "2 weeks",
+            "about": "A new project that is currently in development.",
+            "organisation": "",
+            "groupWork": "",
+            "learnings": ""
+        }
+    },
+    "references": {
+        "title": "Need a teamplayer? Here's what my colleagues said about me",
+        "mobile-title-part1": "Need a teamplayer?",
+        "mobile-title-part2": "Here's what my colleagues said about me",
+        "project": "Project",
+        "profile": "Profile",
+        "reference-1": {
+            "reference-text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, accusamus."
+        },
+        "reference-2": {
+            "reference-text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, accusamus."
+        },
+        "reference-3": {
+            "reference-text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, accusamus."
+        }
+    },
+    "contact": {
+        "title": "Contact me",
+        "email": "E-mail",
+        "description": "If you have an idea, a project or just want to get in touch, feel free to send me a message.",
+        "subtitle": "Let us work together!",
+        "input-name": {
+            "error-required": "Please enter a name.",
+            "error-minlength": "Name must be at least 2 characters.",
+            "name": "Your name"
+        },
+        "input-email": {
+            "error-required": "Please enter an email address.",
+            "error-minlength": "Email must be at least 6 characters.",
+            "error-pattern": "Please enter a valid email address.",
+            "name": "Your email"
+        },
+        "input-message": {
+            "error-required": "Please enter a message.",
+            "error-minlength": "Message must be at least 4 characters.",
+            "name": "Your message"
+        },
+        "input-checkbox": {
+            "text-part1": "I've read the",
+            "text-part2": "privacy policy",
+            "text-part3": "and agree to the processing of my data as outlined.",
+            "error": "Please accept the privacy policy."
+        },
+        "submit": "Send",
+        "aria": {
+            "name": "Enter your name",
+            "email": "Enter your email address",
+            "message": "Enter your message",
+            "scrollTop": "Scroll to the top of the page"
+        }
+    },
+    "footer": {
+        "imprint": "Imprint",
+        "privacy": "Privacy",
+        "aria": {
+            "home": "Go to homepage",
+            "github": "Open GitHub profile",
+            "email": "Send an email"
+        }
+    },
+    "imprint": {
+        "title": "Legal Notice",
+        "provider": "Information according to § 5 DDG",
+        "represented": "Represented by:",
+        "contactTitle": "Contact:",
+        "liabilityTitle": "Disclaimer:",
+        "liabilityContentTitle": "Liability for Content",
+        "liabilityContentText": "The contents of our pages have been created with the utmost care. However, we cannot guarantee the accuracy, completeness or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general laws. However, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.",
+        "liabilityLinksTitle": "Liability for Links",
+        "liabilityLinksText": "Our website contains links to external websites of third parties over whose content we have no control. Therefore, we cannot accept any liability for these external contents. The respective provider or operator of the linked pages is always responsible for their content.",
+        "copyrightTitle": "Copyright",
+        "copyrightText": "The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution or any form of commercialization beyond the scope of copyright law require the prior written consent of the author.",
+        "privacyTitle": "Privacy",
+        "privacyText": "The use of our website is usually possible without providing personal data. If personal data is collected, this is done on a voluntary basis. These data will not be passed on to third parties without your express consent.",
+        "creditsTitle": "Copyright Notice",
+        "creditsText": "Legal notice generated by Impressum-Generator.de. Powered by Franziska Hasselbach, Bonn.",
+        "aria": {
+            "back": "Go back to the previous page"
+        }
+    },
+    "privacy": {
+        "title": "Privacy Policy",
+        "responsibleTitle": "Responsible party",
+        "responsibleIntro": "The responsible party within the meaning of data protection laws, in particular the EU General Data Protection Regulation (GDPR), is:",
+        "rightsTitle": "Your data subject rights",
+        "rightsIntro": "Using the contact details provided, you may exercise the following rights at any time in accordance with the GDPR:",
+        "rightsList": {
+            "item1": "Access to your stored data and information on how it is processed (Art. 15 GDPR),",
+            "item2": "Correction of incorrect personal data (Art. 16 GDPR),",
+            "item3": "Deletion of your stored data (Art. 17 GDPR),",
+            "item4": "Restriction of data processing if we are not yet allowed to delete your data due to legal obligations (Art. 18 GDPR),",
+            "item5": "Objection to the processing of your data by us (Art. 21 GDPR), and",
+            "item6": "Data portability if you have consented to the processing or have concluded a contract with us (Art. 20 GDPR)."
+        },
+        "rightsRevoke": "If you have given us your consent, you may revoke it at any time with effect for the future.",
+        "rightsComplaint": "You may lodge a complaint at any time with a supervisory authority, for example with the supervisory authority of the federal state of your residence or the authority responsible for us.",
+        "rightsAuthorityNote": "A list of supervisory authorities (for the non-public sector) with addresses can be found at:",
+        "processingTitle": "Processing activities",
+        "visitTitle": "Collection of general information when visiting our website",
+        "visitPurposeTitle": "Type and purpose of processing",
+        "visitPurposeText1": "When you access our website, i.e. if you do not register or otherwise transmit information, general information is automatically collected. This information (server log files) includes the type of web browser, the operating system used, the domain name of your internet service provider, your IP address and similar data.",
+        "visitPurposeText2": "They are processed in particular for the following purposes:",
+        "visitPurposeList": {
+            "item1": "Ensuring a smooth connection to the website",
+            "item2": "Ensuring the smooth use of our website"
+        },
+        "visitPurposeText3": "We do not use this data to draw conclusions about your person. However, we reserve the right to check the server log files retrospectively if there are concrete indications of unlawful use.",
+        "visitLegalTitle": "Legal basis and legitimate interest",
+        "visitLegalText": "Processing is carried out in accordance with Art. 6(1)(f) GDPR on the basis of our legitimate interest in improving the stability and functionality of our website and ensuring system security and abuse detection.",
+        "visitRecipientsTitle": "Recipients",
+        "visitRecipientsText": "Recipients of the data may be technical service providers who act as processors for the operation and maintenance of our website.",
+        "visitStorageTitle": "Storage period",
+        "visitStorageText1": "Data is stored in server log files in a form that allows the identification of the data subjects for a maximum of [please provide information], unless a security-relevant event occurs (e.g. a DDoS attack).",
+        "visitStorageText2": "In the event of such an incident, server log files are stored until the security-relevant incident has been resolved and fully clarified.",
+        "visitRequiredTitle": "Provision required or mandatory",
+        "visitRequiredText": "The provision of the above personal data is neither legally nor contractually required. However, without the IP address, the service and functionality of our website cannot be guaranteed.",
+        "visitObjectionTitle": "Objection",
+        "visitObjectionText": "Please read the information on your right to object pursuant to Art. 21 GDPR below.",
+        "contactTitle": "Contact",
+        "contactPurposeTitle": "Type and purpose of processing",
+        "contactPurposeText1": "Our website contains a contact form which can be used for electronic contact. If a user makes use of this option, the data entered in the input mask is transmitted to us and stored.",
+        "contactPurposeText2": "Contact is also possible via the email addresses provided. In this case, the personal data transmitted with the email will be stored. This includes date and time of sending, email address, IP addresses and information about the servers involved.",
+        "contactPurposeText3": "You may also contact us via the provided phone numbers. In doing so, we collect log data containing your phone number and the duration of the call.",
+        "contactPurposeText4": "Regardless of the communication channel, we store the content of your request for the purpose of individual communication with you.",
+        "contactLegalTitle": "Legal basis",
+        "contactLegalText1": "Data is processed on the basis of a legitimate interest (Art. 6(1)(f) GDPR).",
+        "contactLegalText2": "Our legitimate interest lies in enabling uncomplicated contact.",
+        "contactLegalText3": "If you contact us to request an offer, processing is carried out to take pre-contractual measures (Art. 6(1)(b) GDPR).",
+        "contactRecipientsTitle": "Recipients",
+        "contactRecipientsText": "Recipients of the data may be technical service providers who act as processors.",
+        "contactStorageTitle": "Storage period",
+        "contactStorageText1": "Data will be deleted at the latest [please provide information] after processing the contact request.",
+        "contactStorageText2": "If a contractual relationship arises, statutory retention periods apply, generally 6 or 10 years.",
+        "contactRequiredTitle": "Provision required or mandatory",
+        "contactRequiredText": "The provision of your personal data is voluntary. However, we can only process your request if you provide the necessary information.",
+        "contactObjectionTitle": "Objection",
+        "contactObjectionText": "Please read the information on your right to object pursuant to Art. 21 GDPR below.",
+        "objectionInfoTitle": "Information on your right to object pursuant to Art. 21 GDPR",
+        "objectionCaseTitle": "Right to object on a case-by-case basis",
+        "objectionCaseText1": "You have the right to object at any time to the processing of personal data concerning you on grounds relating to your particular situation if processing is based on Art. 6(1)(f) GDPR.",
+        "objectionCaseText2": "If you object, we will no longer process your personal data unless we can demonstrate compelling legitimate grounds.",
+        "objectionRecipientTitle": "Recipient of an objection",
+        "changesTitle": "Changes to our privacy policy",
+        "changesText": "We reserve the right to adapt this privacy policy to comply with current legal requirements or to reflect changes to our services.",
+        "questionsTitle": "Questions about data protection",
+        "questionsText": "If you have any questions about data protection, please email the responsible party named above.",
+        "creditsTitle": "Credits",
+        "creditsText1": "This privacy policy was created with the help of activeMind AG - the expert",
+        "creditsText2": "external data protection officers",
+        "aria": {
+            "back": "Go back to the previous page",
+            "authorityLink": "External link to the data protection authority, opens in a new tab",
+            "externalSource": "External source for data protection information, opens in a new tab"
+        }
+    }
+}

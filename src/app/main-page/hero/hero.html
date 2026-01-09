@@ -1,16 +1,37 @@
-<section class = "layout">
-    <div class="hero-img">
-        <img src="assets/img/photo-mobile.png" alt="">
-        <!-- <img class="photo" src="assets/img/photo-mobile.png" alt=""> -->
+<div id="hero" class="anchor" aria-hidden="true"></div>
+<div class="layout ">
+<section>
+    <div class="images-wrapper">
+        <div class="bg-shape-wrapper desktop-only" aria-hidden="true">
+            <img class="bg-shape shape-normal desktop-only" src="assets/img/hero-bg-shape.svg" alt="" aria-hidden="true">
+            <img class="bg-shape shape-hover desktop-only"  src="assets/img/hero-bg-shape-hover.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="img-wrapper">
+            <img class="photo mobile-only" src="assets/img/photo-mobile.png" alt="{{ 'hero.photoAlt' | translate }}">
+            <img class="photo desktop-only" src="assets/img/photo.png" alt="{{ 'hero.photoAlt' | translate }}">
+        </div>
     </div>
-    <img class="logo" src="assets/icons/logo.svg" alt="">
-    <div class="social">
-        <a href=""><img src="assets/icons/social/github-blue.svg" alt=""></a>
-        <a href=""><img src="assets/icons/social/mail-blue.svg" alt=""></a>
+    <div class="logo-wrapper desktop-only" aria-hidden="true">
+        <img class="logo logo-normal" src="assets/icons/logo.svg" alt="" aria-hidden="true">
+        <img class="logo logo-hover"  src="assets/icons/logo-hover.svg" alt="" aria-hidden="true">
+    </div>
+    <div class="social" aria-label="{{ 'hero.aria.socialLinks' | translate }}">
+        <a class="icon-link" href="https://github.com/sonja-sander" target="_blank" rel="noopener" aria-label="{{ 'hero.aria.github' | translate }}">
+            <img class="icon icon-normal" src="assets/icons/social/github-blue.svg" alt="" aria-hidden="true">
+            <img class="icon icon-hover" src="assets/icons/social/github-dark-on-blue.svg" alt="" aria-hidden="true">
+        </a>
+        <a class="icon-link" href="mailto:mail@sonja-sander.de" aria-label="{{ 'hero.aria.email' | translate }}">
+            <img class="icon icon-normal" src="assets/icons/social/mail-blue.svg" alt="" aria-hidden="true">
+            <img class="icon icon-hover" src="assets/icons/social/mail-dark-on-blue.svg" alt="" aria-hidden="true">
+        </a>
     </div>
     <div class="title">
         <h1>Sonja Sander</h1>
-        <h2>FRONTEND DEVELOPER</h2>
+        <h2>FRONTEND {{ 'hero.subtitle' | translate}}</h2>
     </div>
-    <button><img src="assets/icons/arrow-down.svg" alt=""></button>
+    <a class="icon-link" [routerLink]="['/']" fragment="about" aria-label="{{ 'hero.aria.scrollAbout' | translate }}">
+        <img class="icon icon-normal" src="assets/icons/arrow-down.svg" alt="" aria-hidden="true">
+        <img class="icon icon-hover" src="assets/icons/arrow-down-hover.svg" alt="" aria-hidden="true">
+    </a>
 </section>
+</div>

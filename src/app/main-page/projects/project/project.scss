@@ -1,35 +1,110 @@
-@use "../../../../../public/assets/styles/all-styles.scss" as all;
+@use '../../../../../public/assets/styles/all-styles.scss' as all;
 
-article{
-    @include all.grid($row-gap: 1.6rem);
-    text-align: left;
+.layout {
+    @include all.grid($columns: 6% 1fr 6%);
+    background-color: #2d383f;
+    border-radius: 0 24px 24px 24px;
 
-    .project-img{
-        @include all.grid();
-        img{
-            width: 80%;
-            border-radius: 24px;
-            place-self: center;
-        }
+    @include all.desktop {
+        @include all.grid($columns: 8% 1fr 8%);
     }
 
-    .project-text{
-        div{
-            @include all.flex($jc: flex-start, $gap: 0.8rem);
-            margin: 0.8rem 0;
-            width: 100%;
+    article {
+        @include all.grid($row-gap: 1.6rem);
+        text-align: left;
+        padding: 2.2rem 0;
 
-            >img{
-                height: 2rem;
+        @include all.desktop {
+            @include all.grid($rows: 1fr auto, $columns: 3fr 1fr);
+        }
+
+        .project-img {
+            @include all.grid();
+
+            @include all.desktop {
+                grid-area: 1/2/2/3;
+                @include all.grid($ai: center, $row-gap: 0.4rem);
             }
 
-            >h4{
-                font-size: initial;
+            >h3 {
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: normal;
+                margin-bottom: 0.8rem;
+            }
+
+            >p {
+                text-align: left;
+
+                @include all.desktop {
+                    text-align: center;
+                }
+            }
+
+            >.technology-images {
+                @include all.flex($gap: 1.6rem);
+
+                >img {
+                    height: 30px;
+                }
+            }
+
+            >img {
+                width: clamp(23rem, 40dvw, 30rem);
+                border-radius: 24px;
+                place-self: center;
+                margin-top: 1.7rem;
+
+                @include all.desktop {
+                    width: clamp(20rem, 40dvw, 22rem);
+                    margin-top: 0.4rem;
+                }
             }
         }
-    }
 
-    .project-links{
-        @include all.flex($gap: 1.6rem);
+        .project-text {
+            @include all.desktop {
+                grid-area: 1/1/2/2;
+                width: 90%;
+            }
+
+            .info-heading {
+                @include all.flex($jc: flex-start, $ai: center, $gap: 0.8rem);
+                margin: 0 0 0.8rem;
+
+                >img {
+                    height: 20px;
+                }
+
+                >p {
+                    align-self: flex-end;
+                }
+
+                >h4 {
+                    font-size: initial;
+                    font-family: 'Josefin Sans', sans-serif;
+                    font-weight: normal;
+
+                    @include all.desktop {
+                        font-size: 22px;
+                    }
+                }
+            }
+
+            >p {
+                margin-bottom: 2.4rem;
+
+                @include all.desktop {
+                    margin: 0 0 2rem 2.2rem;
+                }
+            }
+        }
+
+        .project-links {
+            @include all.flex($gap: 2rem);
+
+            @include all.desktop {
+                grid-area: 2/2/3/3;
+            }
+        }
     }
 }

@@ -1,16 +1,44 @@
-<footer class = "layout">
-    <a href="">
-        <img src="assets/icons/mobile-logo-dark.svg" alt="">
-    </a>
-    <nav>
-        <ul>
-            <li><a href=""><img src="assets/icons/social/github-blue-on-white-bg.svg" alt=""></a></li>
-            <li><a href=""><img src="assets/icons/social/mail-blue-on-white-bg.svg" alt=""></a></li>
-        </ul>
-    </nav>
-    <div>
-        <a routerLink="/imprint">Imprint</a>
-        <a routerLink="/privacy">Privacy</a>
-        <p>@ Sonja Sander 2025</p>
+<footer>
+    <div class="content-wrapper">
+        <div class="layout">
+            <div class="content">
+                <a class="logo" routerLink="" aria-label="{{ 'footer.aria.home' | translate }}">
+                    <img src="assets/icons/mobile-logo-dark.svg" alt="" aria-hidden="true">
+                </a>
+                <nav class="social-nav" aria-label="Social links">
+                    <ul>
+                        <li>
+                            <a class="icon-link" href="https://github.com/sonja-sander" target="_blank" rel="noopener" aria-label="{{ 'footer.aria.github' | translate }}">
+                                <picture class="icon icon-normal">
+                                    <source media="(min-width: 1025px)" srcset="assets/icons/social/github-dark.svg">
+                                    <img src="assets/icons/social/github-blue-on-white.svg" alt="GitHub">
+                                </picture>
+                                <picture class="icon icon-hover" aria-hidden="true">
+                                    <source media="(min-width: 1025px)" srcset="assets/icons/social/github-dark-on-white.svg">
+                                    <img src="assets/icons/social/github-blue-on-white.svg" alt="">
+                                </picture>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="icon-link" href="mailto:mail@sonja-sander.de" aria-label="{{ 'footer.aria.email' | translate }}">
+                                <picture class="icon icon-normal">
+                                    <source media="(min-width: 1025px)" srcset="assets/icons/social/mail-dark.svg">
+                                    <img src="assets/icons/social/mail-blue-on-white.svg" alt="Mail">
+                                </picture>
+                                <picture class="icon icon-hover" aria-hidden="true">
+                                    <source media="(min-width: 1025px)" srcset="assets/icons/social/mail-dark-on-white.svg">
+                                    <img src="assets/icons/social/mail-blue-on-white.svg" alt="">
+                                </picture>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="legal">
+                    <a routerLink="/imprint">{{'footer.imprint' | translate}}</a>
+                    <a routerLink="/privacy">{{'footer.privacy' | translate}}</a>
+                    <p>@ Sonja Sander 2026</p>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>

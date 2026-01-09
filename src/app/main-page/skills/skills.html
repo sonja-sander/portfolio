@@ -1,27 +1,68 @@
-<section class = "layout">
-    <h2>My skills</h2>
+<div id="skills" class="anchor" aria-hidden="true"></div>
+<section class="layout">
+    <h2>{{ 'skills.title' | translate}}</h2>
     <div class="skill-icons">
-        <img src="assets/icons/skills/mobile/angular.svg" alt="">
-        <img src="assets/icons/skills/mobile/css.svg" alt="">
-        <img src="assets/icons/skills/mobile/firebase.svg" alt="">
-        <img src="assets/icons/skills/mobile/git.svg" alt="">
-        <img src="assets/icons/skills/mobile/html.svg" alt="">
-        <img src="assets/icons/skills/mobile/javascript.svg" alt="">
-        <img src="assets/icons/skills/mobile/material-design.svg" alt="">
-        <img src="assets/icons/skills/mobile/rest-api.svg" alt="">
-        <img src="assets/icons/skills/mobile/scrum.svg" alt="">
-        <img src="assets/icons/skills/mobile/typescript.svg" alt="">
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/angular.svg">
+            <img src="assets/icons/skills/mobile/angular.svg" alt="Angular">
+        </picture>
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/typescript.svg">
+            <img src="assets/icons/skills/mobile/typescript.svg" alt="TypeScript">
+        </picture>
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/javascript.svg">
+            <img src="assets/icons/skills/mobile/javascript.svg" alt="JavaScript">
+        </picture>
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/html.svg">
+            <img src="assets/icons/skills/mobile/html.svg" alt="HTML">
+        </picture>
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/css.svg">
+            <img src="assets/icons/skills/mobile/css.svg" alt="CSS">
+        </picture>
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/rest-api.svg">
+            <img src="assets/icons/skills/mobile/rest-api.svg" alt="REST API">
+        </picture>
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/firebase.svg">
+            <img src="assets/icons/skills/mobile/firebase.svg" alt="Firebase">
+        </picture>
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/git.svg">
+            <img src="assets/icons/skills/mobile/git.svg" alt="Git">
+        </picture>
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/material-design.svg">
+            <img src="assets/icons/skills/mobile/material-design.svg" alt="Material Design">
+        </picture>
+        <picture>
+            <source media="(min-width: 1025px)" srcset="assets/icons/skills/desktop/scrum.svg">
+            <img src="assets/icons/skills/mobile/scrum.svg" alt="Scrum">
+        </picture>
     </div>
-    <p class="currently-learning-title">What I am currently learning</p>
-    <div class="currently-learning-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, id.</p>
-        <div class="currently-learning-icons">
-            <img class="skills-bg-shape" src="assets/img/skills-bg-shape.png" alt="">
-            <div>
-                <img src="assets/icons/skills/currently-learning/three-js.svg" alt="">
-                <img src="assets/icons/skills/currently-learning/python.svg" alt="">
+    <div class="currently-learning">
+        <div class="skills-bg-shape-wrapper desktop-only" aria-hidden="true">
+            <img class="skills-bg-shape shape-normal" src="assets/img/skills-bg-shape.png" alt="" aria-hidden="true">
+            <img class="skills-bg-shape shape-hover"  src="assets/img/skills-bg-shape-hover.png" alt="" aria-hidden="true">
+        </div>
+        <p class="title mobile-only">{{ 'skills.learning-title' | translate }}</p>
+        <img class="skills-bg-shape mobile-only" src="assets/img/skills-bg-shape-mobile.svg" alt="" aria-hidden="true">
+        <p class="description mobile-only">{{ 'skills.learning-description' | translate }}</p>
+        <div class="icons mobile-only">
+            <img class="mobile-only" src="assets/icons/skills/currently-learning/three-js.svg" alt="Three.js">
+            <img class="mobile-only" src="assets/icons/skills/currently-learning/python.svg" alt="Python">
+        </div>
+        <div class="content desktop-only">
+            <p class="title desktop-only">{{ 'skills.learning-title' | translate }}</p>
+            <p class="description desktop-only">{{ 'skills.learning-description' | translate }}</p>
+            <div class="icons desktop-only">
+                <img src="assets/icons/skills/currently-learning/three-js.svg" alt="Three.js">
+                <img src="assets/icons/skills/currently-learning/python.svg" alt="Python">
             </div>
         </div>
     </div>
-    <button class="primary-btn">Let's talk</button>
+    <button [routerLink]="['/']" fragment="contact" aria-label="{{ 'skills.aria.scrollContact' | translate }}" class="primary-btn mobile-only">{{ 'skills.cta' | translate }}</button>
 </section>

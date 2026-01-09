@@ -1,29 +1,214 @@
-@use "../../../../public/assets/styles/all-styles.scss" as all;
+@use '../../../../public/assets/styles/all-styles.scss' as all;
 
-section{
-    @include all.grid($row-gap: 1.6rem, $jc: center, $ai: center);
-    margin: 1.6rem 0;
-    text-align: center;
+$slot: 4s;
+$cycle: $slot * 3;
 
-    // @include all.desktop{
-    //     @include all.grid($rows: repeat(4, 1fr), $columns: 50% 1fr 1fr 1fr);
-    // }
-    .location{
-        @include all.flex($gap: 0.8rem);
-        
-        p{
-            overflow: hidden;
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(30, end);
-        }
+section {
+  @include all.grid($rows: auto auto auto, $columns: 6% 1fr 6%, $row-gap: all.$gap-spacing);
+  padding: 0rem 0;
+  text-align: center;
 
-        img{
-            height: 3rem;
-        }
+  @include all.desktop {
+    margin-top: 1rem;
+    padding: 4rem 0 3rem;
+    @include all.grid($rows: auto auto,
+      $columns: 15% 1fr 1fr 15%,
+      $row-gap: 2rem,
+      $column-gap: 1.6rem);
+  }
+
+  h2 {
+    grid-area: 1 / 2 / 2 / 3;
+
+    @include all.desktop {
+      grid-area: 1 / 2 / 2 / 4;
     }
+  }
+
+  // #region Typing animation
+  .about-typing {
+    grid-area: 2 / 2 / 3 / 3;
+    align-self: start;
+    height: 4rem;
+    min-height: 4rem;
+    min-width: 300px;
+    max-width: 100%;
+
+    @media(max-width: 350px){
+      min-width: 250px;
+    }
+
+    @include all.desktop {
+      grid-area: 2 / 2 / 3 / 3;
+      @include all.flex($ai: flex-start);
+      width: 350px;
+      margin-top: 0.8rem;
+    }
+
+    .row {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-align: center;
+      opacity: 0;
+      animation-fill-mode: forwards;
+
+      >.icon {
+
+        @media(max-width: 350px){
+          display: none;
+        }
+
+        >img {
+          height: 35px;
+          width: 35px;
+          object-fit: contain;
+
+          @include all.desktop {
+            height: 55px;
+            width: 55px;
+          }
+        }
+      }
+
+      .typewriter {
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+
+        @media(max-width: 350px){
+          font-weight: normal;
+          padding-left: 20px;
+        }
+
+        @include all.desktop {
+          font-size: 22px;
+        }
+
+        .cursor {
+          margin-left: 2px;
+          opacity: 0;
+          animation-name: blinkCursor;
+          animation-duration: 0.8s;
+          animation-timing-function: steps(2, end);
+          animation-iteration-count: infinite;
+        }
+      }
+
+      &.r1 {
+        animation-name: showRow;
+        animation-duration: $cycle;
+        animation-iteration-count: infinite;
+
+        .typewriter {
+          animation-name: typeDelete;
+          animation-duration: $slot;
+          animation-timing-function: steps(30, end);
+          animation-iteration-count: infinite;
+        }
+      }
+
+      &.r2 {
+        animation-name: showRow;
+        animation-duration: $cycle;
+        animation-delay: $slot;
+        animation-iteration-count: infinite;
+
+        .typewriter {
+          animation-name: typeDelete;
+          animation-duration: $slot;
+          animation-delay: $slot;
+          animation-timing-function: steps(30, end);
+          animation-iteration-count: infinite;
+        }
+      }
+
+      &.r3 {
+        animation-name: showRow;
+        animation-duration: $cycle;
+        animation-delay: $slot * 2;
+        animation-iteration-count: infinite;
+
+        .typewriter {
+          animation-name: typeDelete;
+          animation-duration: $slot;
+          animation-delay: $slot * 2;
+          animation-timing-function: steps(30, end);
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+  }
+  // #endregion
+
+  .description {
+    grid-area: 3 / 2 / 4 / 3;
+
+    @include all.desktop {
+      grid-area: 2 / 3 / 3 / 4;
+      @include all.flex($fd: column, $ai: flex-end, $gap: 0.8rem);
+      text-align: left;
+      padding: 1rem 2rem 0;
+    }
+  }
 }
 
-@keyframes typing{
-    from {width: 0} to {width: 100%}
+.blue {
+  color: all.$primary-color;
 }
+
+// #region Keyframes
+@keyframes blinkCursor {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showRow {
+  0% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  34% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes typeDelete {
+  0% {
+    width: 0;
+  }
+
+  55% {
+    width: 100%;
+  }
+
+  70% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+// #endregion

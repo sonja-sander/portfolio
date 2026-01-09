@@ -1,22 +1,90 @@
 @use "../../../../../public/assets/styles/all-styles.scss" as all;
 
-article{
+article.reference {
+  @include all.grid();
+
+  >.mobile-shape {
+    grid-area: 1/1/2/2;
+    width: clamp(27rem, 50dvw, 35rem);
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .ref-shape-wrapper {
+    grid-area: 1/1/2/2;
+    width: 100%;
+    max-width: 100%;
+    place-self: center;
     @include all.grid();
-    min-width: 290px;
+    pointer-events: none;
 
-        
-    >img{
-        grid-area: 1/1/2/2;
-        width: 100%;
+    >.ref-shape {
+      grid-area: 1/1/2/2;
+      max-width: 100%;
+      height: auto;
+      transition: opacity 400ms ease, transform 400ms ease;
     }
 
-    >div{
-        grid-area: 1/1/2/2;
-        width: 70%;
-        place-self: center;
-
-        >h3, h3, p{
-            font-family: "Josefin Sans", sans-serif;
-        }
+    >.shape-hover {
+      opacity: 0;
     }
+  }
+
+  >.ref-content {
+    grid-area: 1/1/2/2;
+    @include all.flex($fd: column, $jc: center, $ai: flex-start, $gap: 0.8rem);
+    width: 80%;
+    place-self: center;
+    padding-left: 1.6rem;
+
+    @include all.desktop {
+      @include all.flex($fd: column, $jc: center, $ai: center, $gap: 0.3rem);
+      text-align: center;
+      padding-left: 0;
+    }
+
+    >h3,
+    h4,
+    p {
+      font-family: "Josefin Sans", sans-serif;
+      font-weight: normal;
+    }
+
+    >h3,
+    span {
+      color: all.$secondary-color;
+    }
+
+    >h3 {
+      @include all.desktop {
+        font-size: 1.4rem;
+      }
+    }
+
+    >h4 {
+      @include all.desktop {
+        font-size: 1rem;
+      }
+    }
+
+    >a {
+      text-decoration: underline;
+    }
+
+    >p {
+      margin: 0.8rem 0;
+    }
+  }
+
+  &:hover {
+    .ref-shape-wrapper {
+      >.shape-hover {
+        opacity: 1;
+      }
+
+      >.shape-normal {
+        opacity: 0;
+      }
+    }
+  }
 }

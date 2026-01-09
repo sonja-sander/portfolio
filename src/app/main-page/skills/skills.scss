@@ -1,43 +1,142 @@
 @use "../../../../public/assets/styles/all-styles.scss" as all;
 
-section{
-    @include all.grid($row-gap: 1.6rem, $ji: center, $ai: center);
-    margin: 1.6rem 0;
+section {
+    @include all.grid($row-gap: all.$gap-spacing, $ji: center, $ai: center);
+    padding: 7rem 0 3rem;
     text-align: center;
 
-    // @include all.desktop{
-    //     @include all.grid($rows: repeat(4, 1fr), $columns: 50% 1fr 1fr 1fr);
-    // }
+    @include all.desktop {
+        @include all.grid($rows: auto auto, $columns: 15% 1fr 1fr 15%, $row-gap: 4rem, $column-gap: 1.6rem);
+        padding: 4rem 0 2rem;
+    }
 
-    .skill-icons{
-        @include all.flex($gap: 4rem);
+    h2 {
+        @include all.desktop {
+            grid-area: 1/2/2/4;
+        }
+    }
+
+    .skill-icons {
+        @include all.flex();
+        row-gap: 2.5rem;
+        column-gap: 4rem;
         flex-wrap: wrap;
-    }
 
-    .currently-learning-title{
-        color: all.$primary-color;
-    }
-
-    .currently-learning-content{
-        @include all.grid($columns: 50% 50%, $ai: center);
-        
-        p{
-            grid-column: 1/2;
-            text-align: left;
+        @include all.desktop {
+            row-gap: 2.3rem;
+            column-gap: 2rem;
+            grid-area: 2/2/3/3;
         }
 
-        .currently-learning-icons{
-            @include all.grid();
-            
-            .skills-bg-shape{
+        img {
+            height: 42px;
+
+            @include all.desktop {
+                height: 78px;
+            }
+        }
+    }
+
+    .currently-learning {
+        @include all.grid($rows: auto auto, $columns: 6fr 4fr);
+
+        .title {
+            grid-area: 1/1/2/3;
+            color: all.$primary-color;
+            margin-bottom: 3rem;
+        }
+
+        .description {
+            grid-area: 2/1/3/2;
+            text-align: left;
+            align-self: center;
+        }
+
+        .skills-bg-shape {
+            grid-area: 2/2/3/3;
+            place-self: center;
+
+            @include all.desktop {
+                height: 19rem;
+                width: 19rem;
+                object-fit: contain;
+            }
+        }
+
+        .icons {
+            grid-area: 2/2/3/3;
+            place-self: center;
+            @include all.flex($gap: 0.4rem);
+
+            >img {
+                height: 50px;
+
+                @include all.desktop {
+                    height: 40px;
+                }
+            }
+        }
+
+        @include all.desktop {
+            grid-area: 2/3/3/4;
+            @include all.grid($rows: 1fr, $columns: 1fr);
+
+            .skills-bg-shape-wrapper,
+            .content {
                 grid-area: 1/1/2/2;
-                width: 80%;
+            }
+
+            .skills-bg-shape-wrapper {
+                @include all.grid();
+                width: 100%;
                 place-self: center;
             }
 
-            >div{
-                @include all.flex($gap: 0.8rem);
-                grid-area: 1/1/2/2;
+            .skills-bg-shape {
+                grid-area: 1/1;
+                width: 100%;
+                transition: opacity 400ms ease, transform 400ms ease;
+            }
+
+            .shape-hover {
+                opacity: 0;
+                transform: scale(0.97);
+            }
+
+            &:hover {
+                .skills-bg-shape-wrapper {
+                    >.shape-hover {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+
+                    >.shape-normal {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+
+        .content {
+            @include all.desktop {
+                @include all.grid($rows: auto auto auto, $jc: center, $row-gap: 0.8rem);
+                width: 60%;
+                place-self: center;
+                z-index: 2;
+
+                .title {
+                    grid-area: 1/1/2/2;
+                    margin-bottom: 0;
+                }
+
+                .icons {
+                    grid-area: 2/1/3/2;
+                }
+
+                .description {
+                    grid-area: 3/1/4/2;
+                    text-align: center;
+                }
             }
         }
     }

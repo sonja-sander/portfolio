@@ -1,19 +1,212 @@
-@use "../../../../public/assets/styles/all-styles.scss" as all;
+@use '../../../../public/assets/styles/all-styles.scss' as all;
 
-section{
+section {
     @include all.grid($rows: 1fr 1fr 1fr auto auto, $row-gap: 1.6rem, $jc: center, $ai: center);
-    margin: 1.6rem 0;
-    text-align: center;
+    padding: all.$section-spacing;
 
-    // @include all.desktop{
-    //     @include all.grid($rows: repeat(4, 1fr), $columns: 50% 1fr 1fr 1fr);
-    // }
+    @include all.desktop {
+        @include all.grid($rows: repeat(3, auto),
+            $columns: 15% 1fr 1fr 15%,
+            $row-gap: 2rem,
+            $column-gap: 1.6rem);
+        margin: 0 0 5rem;
+        padding: 3rem 0 4rem;
+    }
 
-    form{
-        .field{
-            border: 1px solid all.$primary-color;
-            border-radius: 8px;
-            margin: 0.8rem;
+    h2,
+    h3 {
+        text-align: center;
+    }
+
+    h2 {
+        @include all.desktop {
+            grid-area: 1/2/2/4;
+            margin-bottom: 1rem;
         }
     }
+
+    h3 {
+        font-size: initial;
+        font-weight: normal;
+    }
+
+    >address {
+        @include all.flex($gap: 0.8rem, $jc: flex-start);
+        font-style: normal;
+        margin: 1.6rem 0 0.8rem;
+
+        @include all.desktop {
+            align-self: start;
+            margin: 0;
+            grid-area: 2/3/3/4;
+        }
+
+        >img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    >p {
+        @include all.desktop {
+            grid-area: 2/2/3/3;
+        }
+    }
+
+    // #region Form
+    form {
+        @include all.grid($row-gap: 1.2rem);
+        width: 100%;
+
+        @include all.desktop {
+            grid-area: 3/2/4/4;
+            @include all.grid($rows: repeat(4, auto),
+                $columns: 1fr 1fr,
+                $row-gap: 0.1rem,
+                $column-gap: 1.6rem);
+        }
+
+        .input-container {
+            @include all.flex($fd: column, $ai: flex-start);
+
+            >label {
+                padding-left: 2.4rem;
+                color: all.$primary-color;
+
+                @include all.desktop {
+                    padding-left: 1rem;
+                }
+            }
+        }
+
+        .name-container {
+            @include all.desktop {
+                grid-area: 1/1/2/2;
+            }
+        }
+
+        .email-container {
+            @include all.desktop {
+                grid-area: 1/2/2/3;
+            }
+        }
+
+        .message-container {
+            @include all.desktop {
+                grid-area: 2/1/3/3;
+                margin-top: 0.8rem;
+            }
+        }
+
+        .input-field {
+            height: 50px;
+            border: 1px solid all.$primary-color;
+            border-radius: 50px;
+            padding: 1.6rem;
+            width: 100%;
+        }
+
+        .input-field.ng-invalid.ng-touched,
+        .text-field.ng-invalid.ng-touched {
+            border-color: all.$error-color;
+            outline: none;
+        }
+
+        .text-field {
+            height: 180px;
+            border: 1px solid all.$primary-color;
+            border-radius: 25px;
+            padding: 1.6rem;
+            width: 100%;
+
+            @include all.desktop {
+                height: 120px;
+            }
+        }
+
+        .input-field:focus,
+        .text-field:focus {
+            outline: none;
+            background-color: #323f48;
+        }
+
+        .input-field.ng-valid.ng-touched {
+            padding-right: 4.2rem;
+            background-image: url('../../../../public/assets/icons/contact/done.svg');
+            background-repeat: no-repeat;
+            background-position: right 1.6rem center;
+            background-size: 18px 18px;
+        }
+
+        .checkbox-container {
+            justify-self: flex-start;
+            margin-top: 0.8rem;
+            @include all.flex($gap: 0.8rem, $ai: flex-start);
+
+            @include all.desktop {
+                grid-area: 3/1/4/3;
+            }
+
+            >label {
+                line-height: 1.2;
+            }
+        }
+
+        input[type='checkbox']:before {
+            content: '';
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            background: url(../../../../public/assets/icons/contact/checkboxes/default.svg) #262e34;
+            background-position: center;
+            background-size: contain;
+
+            @include all.desktop {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+
+        input[type='checkbox']:checked:before {
+            background: url(../../../../public/assets/icons/contact/checkboxes/checked.svg) #262e34;
+            background-position: center;
+            background-size: contain;
+        }
+
+        >button {
+            justify-self: end;
+
+            @include all.desktop {
+                grid-area: 4/2/5/3;
+                margin-top: 0.3rem;
+            }
+        }
+    }
+    // #endregion
+
+    >a {
+        place-self: center;
+
+        @include all.desktop {
+            grid-area: 1/4/3/5;
+        }
+
+        >img {
+            height: 60px;
+            margin: all.$section-spacing;
+
+            @include all.desktop {
+                height: 70px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.error {
+    color: all.$error-color;
+}
+
+.checkbox-error-container {
+    padding: 0.2rem 0 0 1.5rem;
 }

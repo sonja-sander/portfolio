@@ -1,6 +1,108 @@
-<section class = "layout">
-    <div class="content">
-        <a href=""><img src="assets/icons/mobile-logo-dark.svg" alt=""></a>
-        <button><img src="assets/icons/nav/burger-menu.svg" alt=""></button>
+<section>
+    <div class="content-wrapper">
+        <div class="layout">
+            <div class="content">
+                <a class="logo" routerLink="" aria-label="{{ 'nav.aria.home' | translate }}">
+                    <img src="assets/icons/mobile-logo-dark.svg" alt="" aria-hidden="true">
+                </a>
+                <nav class="desktop-nav desktop-only">
+                    <ul>
+                        <li [class.is-active]="activeSection === 'about'">
+                            <a [routerLink]="['/']" fragment="about" (click)="setActive('about')">
+                            {{ 'nav.why-me' | translate }}
+                            </a>
+                        </li>
+                        <li [class.is-active]="activeSection === 'skills'">
+                            <a [routerLink]="['/']" fragment="skills" (click)="setActive('skills')">
+                            {{ 'nav.skills' | translate }}
+                            </a>
+                        </li>
+                        <li [class.is-active]="activeSection === 'projects'">
+                            <a [routerLink]="['/']" fragment="projects" (click)="setActive('projects')">
+                            {{ 'nav.projects' | translate }}
+                            </a>
+                        </li>
+                        <li [class.is-active]="activeSection === 'contact'">
+                            <a [routerLink]="['/']" fragment="contact" (click)="setActive('contact')">
+                            {{ 'nav.contact' | translate }}
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="language-switch desktop-nav desktop-only">
+                    <button
+                        type="button"
+                        (click)="changeLang('de')"
+                        [class.is-active]="activeLang === 'de'"
+                        aria-label="{{ 'nav.aria.langDe' | translate }}"
+                        >
+                        {{ 'nav.german' | translate }}
+                    </button>
+                    <button
+                        type="button"
+                        (click)="changeLang('en')"
+                        [class.is-active]="activeLang === 'en'"
+                        aria-label="{{ 'nav.aria.langEn' | translate }}"
+                        >
+                        {{ 'nav.english' | translate }}
+                    </button>
+                </div>
+                <button class="mobile-nav mobile-only" [class.is-open]="menuOpen" (click)="toggleMenu(menuDialog)" aria-label="{{ 'nav.aria.toggleMenu' | translate }}">
+                    <svg class="burger-icon" viewBox="0 0 35 32" aria-hidden="true">
+                        <path class="line line1" d="M1 2H31" />
+                        <path class="line line2" d="M1 16H31" />
+                        <path class="line line3" d="M1 30H31" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
 </section>
+
+<dialog #menuDialog [class.opened]="menuDialog.open" (click)="onBackdropClick($event, menuDialog)" (close)="onDialogClosed()">
+    <div class="dialog-content">
+        <img src="assets/img/mobile-menu-overlay.png" alt="" aria-hidden="true">
+        <nav>
+            <ul>
+                <li>
+                    <a [routerLink]="['/']" fragment="about" (click)="closeDialog(menuDialog)">
+                        {{ 'nav.why-me' | translate }}
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/']" fragment="skills" (click)="closeDialog(menuDialog)">
+                        {{ 'nav.skills' | translate }}
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/']" fragment="projects" (click)="closeDialog(menuDialog)">
+                        {{ 'nav.projects' | translate }}
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/']" fragment="contact" (click)="closeDialog(menuDialog)">
+                        {{ 'nav.contact' | translate }}
+                    </a>
+                </li>
+                <div class="language-switch">
+                    <button
+                        type="button"
+                        (click)="changeLang('de')"
+                        [class.is-active]="activeLang === 'de'"
+                        aria-label="{{ 'nav.aria.langDe' | translate }}"
+                        >
+                        {{ 'nav.german' | translate }}
+                    </button>
+                    <button
+                        type="button"
+                        (click)="changeLang('en')"
+                        [class.is-active]="activeLang === 'en'"
+                        aria-label="{{ 'nav.aria.langEn' | translate }}"
+                        >
+                        {{ 'nav.english' | translate }}
+                    </button>
+                </div>
+            </ul>
+        </nav>
+    </div>
+</dialog>

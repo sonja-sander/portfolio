@@ -1,7 +1,8 @@
 <section>
     <div class="layout">
-        <h2>Need a teamplayer?</h2>
-        <p>Here's what my colleagues said about me</p>
+        <h2 class="mobile-only">{{'references.mobile-title-part1' | translate}}</h2>
+        <p class="mobile-only">{{'references.mobile-title-part2' | translate}}</p>
+        <h2 class="desktop-only">{{'references.title' | translate}}</h2>
     </div>
     <div class="references-container">
         @for (singleReference of referencesDataService.referencesList; track $index) {

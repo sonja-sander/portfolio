@@ -1,16 +1,19 @@
+<div id="projects" class="anchor" aria-hidden="true"></div>
 <section>
-    <h2>My Projects</h2>
-    <nav>
+    <h2>{{'projects.title' | translate}}</h2>
+    <nav role="tablist">
         @for (singleProject of projectsDataService.projectsList; track $index) {
             <button 
                 (click)="activateTab($index)"
-                [class.active]="activeTabIndex === $index">
-                {{$index+1}}. Project
+                [class.active]="activeTabIndex === $index"
+                role="tab"
+                aria-controls="project-panel-{{$index}}"
+                >
+                <span class="mobile-only">{{$index + 1}}. {{'projects.tab-name' | translate}}</span>
+                <span class="desktop-only">{{$index + 1}}. {{singleProject.nameKey | translate}}</span>
             </button>
         }
     </nav>
-    <div>
-        <app-project [project] = "projectsDataService.projectsList[activeTabIndex]"></app-project>
-    </div>
+    <app-project [project] = "projectsDataService.projectsList[activeTabIndex]" role="tabpanel" id="project-panel-{{activeTabIndex}}"></app-project>
 </section>
 

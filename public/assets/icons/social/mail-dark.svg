@@ -1,8 +1,19 @@
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="15" cy="15" r="14.25" stroke="#262E34" stroke-width="1.5"/>
-<mask id="path-2-inside-1_23538_2563" fill="white">
-<rect x="5" y="8" width="20" height="14" rx="1"/>
-</mask>
-<rect x="5" y="8" width="20" height="14" rx="1" stroke="#262E34" stroke-width="3" mask="url(#path-2-inside-1_23538_2563)"/>
-<path d="M6 9L15 15L24 9" stroke="#262E34" stroke-width="1.5" stroke-linecap="round"/>
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m6 8h18c0.55 0 1 0.45 1 1v12c0 0.55-0.45 1-1 1h-18c-0.55 0-1-0.45-1-1v-12c0-0.55 0.45-1 1-1z"/>
+		</clipPath>
+	</defs>
+	<style>
+		.s0 { fill: none;stroke: #262e34;stroke-width: 1.5 } 
+		.s1 { fill: none;stroke: #262e34;stroke-width: 3 } 
+		.s2 { fill: none;stroke: #262e34;stroke-linecap: round;stroke-width: 1.5 } 
+	</style>
+	<g id="Layer 1" style="opacity: .6">
+		<path class="s0" d="m15 29.25c-7.88 0-14.25-6.37-14.25-14.25 0-7.88 6.37-14.25 14.25-14.25 7.88 0 14.25 6.37 14.25 14.25 0 7.88-6.37 14.25-14.25 14.25z"/>
+		<g id="Clip-Path" clip-path="url(#cp1)">
+			<path class="s1" d="m6 8h18c0.55 0 1 0.45 1 1v12c0 0.55-0.45 1-1 1h-18c-0.55 0-1-0.45-1-1v-12c0-0.55 0.45-1 1-1z"/>
+		</g>
+		<path class="s2" d="m6 9l9 6 9-6"/>
+	</g>
 </svg>

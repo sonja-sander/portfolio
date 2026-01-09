@@ -1,22 +1,89 @@
+<div id="contact" class="anchor"></div>
 <section class="layout">
-    <h2>Contact me</h2>
-    <div>
-        <img src="assets/icons/contact/email.svg" alt="">
-        <p>E-mail: sonja.sander3@gmail.com</p>
-    </div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, nobis?</p>
-    <h3>Let us work together!</h3>
-    <form>
-        <input class="field" type="text" placeholder="Your name">
-        <input class="field" type="text" placeholder="Your Email">
-        <textarea class="field" name="" id="" placeholder="Your message"></textarea>
-        <div>
-            <input type="checkbox" id="privacy-check">
-            <label for="privacy-check">I've read the <a routerLink="/privacy">privacy policy</a> and agree to the processing of my data as outlined.</label>
+    <h2>{{'contact.title' | translate}}</h2>
+    <address>
+        <img src="assets/icons/contact/email.svg" alt="" aria-hidden="true">
+        <p>{{'contact.email' | translate}}: mail@sonja-sander.de</p>
+    </address>
+    <p>{{'contact.description' | translate}}</p>
+    <h3 class="mobile-only">{{'contact.subtitle' | translate}}</h3>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+        <div class="input-container name-container">
+            <label for="name">
+                @if (!name.valid && name.touched && !name.disabled) {
+                    <span class="error">
+                    @if (name.errors?.['required']) {
+                        {{ 'contact.input-name.error-required' | translate }}
+                    } @else if (name.errors?.['minlength']) {
+                        {{ 'contact.input-name.error-minlength' | translate }}
+                    }
+                    </span>
+                } @else {
+                    <span>{{ 'contact.input-name.name' | translate }}</span>
+                }
+                </label>
+            <input #name="ngModel" [(ngModel)]="contactData.name" name="name" id="name" class="input-field" type="text" required minlength="2" aria-label="{{ 'contact.aria.name' | translate }}">
         </div>
-        <button type="input">Send</button>
+        <div class="input-container email-container">
+            <label for="email">
+                @if (!email.valid && email.touched && !email.disabled) {
+                    <span class="error">
+                    @if (email.errors?.['required']) {
+                        {{ 'contact.input-email.error-required' | translate }}
+                    } @else if (email.errors?.['minlength']) {
+                        {{ 'contact.input-email.error-minlength' | translate }}
+                    } @else if (email.errors?.['pattern']) {
+                        {{ 'contact.input-email.error-pattern' | translate }}
+                    }
+                    </span>
+                } @else {
+                    <span>{{ 'contact.input-email.name' | translate }}</span>
+                }
+            </label>
+            <input #email="ngModel" [(ngModel)]="contactData.email" name="email" id="email" class="input-field" type="text" required minlength="6" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" aria-label="{{ 'contact.aria.email' | translate }}">
+        </div>
+        <div class="input-container message-container">
+            <label for="message">
+                @if (!message.valid && message.touched && !message.disabled) {
+                    <span class="error">
+                    @if (message.errors?.['required']) {
+                        {{ 'contact.input-message.error-required' | translate }}
+                    } @else if (message.errors?.['minlength']) {
+                        {{ 'contact.input-message.error-minlength' | translate }}
+                    }
+                    </span>
+                } @else {
+                    <span>{{ 'contact.input-message.name' | translate }}</span>
+                }
+            </label>
+            <textarea #message="ngModel" [(ngModel)]="contactData.message" name="message" id="message" class="text-field" required minlength="4" aria-label="{{ 'contact.aria.message' | translate }}"></textarea>
+        </div>
+        <div class="checkbox-container">
+            <input #check="ngModel" [(ngModel)]="contactData.checked" name="check" type="checkbox" id="privacy-check" required>
+            <div>
+                <label for="privacy-check">
+                    {{ 'contact.input-checkbox.text-part1' | translate }}
+                    <a routerLink="/privacy">{{ 'contact.input-checkbox.text-part2' | translate }}</a>
+                    {{ 'contact.input-checkbox.text-part3' | translate }}
+                </label>
+            </div>
+        </div>
+        <div class="checkbox-error-container">
+            @if (check.invalid && (check.touched || contactForm.submitted)) {
+                <span class="error">
+                {{ 'contact.input-checkbox.error' | translate }}
+                </span>
+            }
+        </div>
+        <div>
+            @if (sent) {
+                <p>Danke! Deine Nachricht wurde gesendet.</p>
+            }
+        </div>
+        <button class="inactive-btn" type="submit">{{'contact.submit' | translate}}</button>
     </form>
-    <button>
-        <img src="assets/icons/arrow-up.svg" alt="">
-    </button>
+    <a class="icon-link" [routerLink]="['/']" fragment="hero" aria-label="{{ 'contact.aria.scrollTop' | translate }}">
+        <img class="icon icon-normal" src="assets/icons/arrow-up.svg" alt="" aria-hidden="true">
+        <img class="icon icon-hover" src="assets/icons/arrow-up-hover.svg" alt="" aria-hidden="true">
+    </a>
 </section>

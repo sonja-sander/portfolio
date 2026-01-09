@@ -1,13 +1,48 @@
-<section class = "layout">
-    <h2>Why me</h2>
-    <div class="location">
-        <img src="assets/icons/me/location-icon.svg" alt="">
-        <!-- <p><span>I am </span>located in Langen (Hessen)</p> -->
-        <p><span>I am </span>located in Langen (Hessen)</p>
+<div id="about" class="anchor"></div>
+<section>
+    <h2>{{ 'about.title' | translate }}</h2>
+    <div class="about-typing">
+        <div class="row r1">
+            <picture class="icon">
+                <source media="(min-width: 1025px)" srcset="assets/icons/about/location-desktop.svg">
+                <img src="assets/icons/about/location-mobile.svg" alt="" aria-hidden="true">
+            </picture>
+            <p class="typewriter" aria-label="{{ 'about.typing.prefix' | translate }}{{ 'about.typing.located' | translate }}">
+                <span class="blue">{{ 'about.typing.prefix' | translate }}</span>&nbsp;
+                <span class="text">{{ 'about.typing.located' | translate }}</span>
+                <span class="blue">..</span>
+                <span class="cursor blue">|</span>
+            </p>
+        </div>
+        <div class="row r2">
+            <picture class="icon">
+                <source media="(min-width: 1025px)" srcset="assets/icons/about/remote-desktop.svg">
+                <img src="assets/icons/about/remote-mobile.svg" alt="" aria-hidden="true">
+            </picture>
+            <p class="typewriter" aria-label="{{ 'about.typing.prefix' | translate }}{{ 'about.typing.remote' | translate }}">
+                <span class="blue">{{ 'about.typing.prefix' | translate }}</span>&nbsp;
+                <span class="text">{{ 'about.typing.remote' | translate }}</span>
+                <span class="blue">..</span>
+                <span class="cursor blue">|</span>
+            </p>
+        </div>
+        <div class="row r3">
+            <picture class="icon">
+                <source media="(min-width: 1025px)" srcset="assets/icons/about/relocate-desktop.svg">
+                <img src="assets/icons/about/relocate-mobile.svg" alt="" aria-hidden="true">
+            </picture>
+            <p class="typewriter" aria-label="{{ 'about.typing.prefix' | translate }}{{ 'about.typing.relocate' | translate }}">
+                <span class="blue">{{ 'about.typing.prefix' | translate }}</span>&nbsp;
+                <span class="text">{{ 'about.typing.relocate' | translate }}</span>
+                <span class="blue">..</span>
+                <span class="cursor blue">|</span>
+            </p>
+        </div>
     </div>
-    <div>
-        <p>Why are you passionate about coding? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, porro.
-        </p>
+    <div class="description">
+        <p>{{ 'about.description' | translate}}</p>
+        <button [routerLink]="['/']" fragment="contact" aria-label="{{ 'about.ctaAria' | translate }}" class="secondary-btn desktop-only">{{ 'about.cta' | translate}}</button>
     </div>
 </section>
+
 
