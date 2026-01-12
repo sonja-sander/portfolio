@@ -3,9 +3,9 @@
 <div class="content-wrapper">
   <main class="layout">
     <article class="legal-page-article">
-      <a routerLink="" aria-label="{{ 'imprint.aria.back' | translate }}">
+      <button (click)="back()" aria-label="{{ 'imprint.aria.back' | translate }}">
         <img src="assets/icons/arrow-left.svg" alt="" aria-hidden="true">
-      </a>
+      </button>
 
       <h1>{{ 'imprint.title' | translate }}</h1>
 

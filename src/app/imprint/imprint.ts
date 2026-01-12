@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Navbar } from '../shared/navbar/navbar';
 import { Footer } from '../shared/footer/footer';
-import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-imprint',
-  imports: [Navbar, Footer, RouterLink, TranslatePipe],
+  imports: [Navbar, Footer, TranslatePipe],
   templateUrl: './imprint.html',
   styleUrl: './imprint.scss',
 })
@@ -14,14 +14,26 @@ import { TranslatePipe } from '@ngx-translate/core';
  * Provides the imprint page (legal notice) as a component.
  *
  * This component composes the imprint view using shared layout components
- * such as {@link Navbar} and {@link Footer}. It also enables navigation links
- * via {@link RouterLink} and resolves translations in the template via
- * {@link TranslatePipe}.
+ * such as {@link Navbar} and {@link Footer} and resolves translations in the
+ * template via {@link TranslatePipe}.
+ *
+ * Additionally, it supports a back navigation action via Angular's
+ * {@link Location} service.
  *
  * @remarks
- * The class currently contains no additional logic and is primarily defined
- * by its template and styles.
+ * The back navigation is implemented using {@link Location.back}, which
+ * navigates to the previous entry in the platform's history stack.
  */
 export class Imprint {
-  
+  location = inject(Location);
+
+  /**
+   * Navigates back to the previous route using the platform history.
+   *
+   * @remarks
+   * This method is wired to a "Back" button in the template.
+   */
+  back(): void {
+    this.location.back();
+  }
 }

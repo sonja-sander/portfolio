@@ -1,7 +1,6 @@
 @use "../../../public/assets/styles/all-styles.scss" as all;
 
 .main-page-wrapper{
-    min-height: 100dvh;
     @include all.grid($rows: auto auto 1fr auto);
 
     @include all.desktop{

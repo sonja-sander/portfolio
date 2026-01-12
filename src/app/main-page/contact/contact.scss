@@ -118,6 +118,7 @@ section {
             border-radius: 25px;
             padding: 1.6rem;
             width: 100%;
+            resize: none;
 
             @include all.desktop {
                 height: 120px;
@@ -147,39 +148,69 @@ section {
                 grid-area: 3/1/4/3;
             }
 
+            >input{
+                cursor: pointer;
+            }
+
             >label {
                 line-height: 1.2;
             }
         }
 
+        input[type="checkbox"]{
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
         input[type='checkbox']:before {
             content: '';
             display: inline-block;
-            width: 2rem;
-            height: 2rem;
+            width: 20px;
+            height: 20px;
             background: url(../../../../public/assets/icons/contact/checkboxes/default.svg) #262e34;
             background-position: center;
             background-size: contain;
-
-            @include all.desktop {
-                width: 1rem;
-                height: 1rem;
-            }
         }
-
-        input[type='checkbox']:checked:before {
+        
+        input[type='checkbox']:hover::before {
+            background: url(../../../../public/assets/icons/contact/checkboxes/hover.svg) #262e34;
+            background-position: center;
+            background-size: contain;
+        }
+        
+        input[type='checkbox']:checked::before {
             background: url(../../../../public/assets/icons/contact/checkboxes/checked.svg) #262e34;
             background-position: center;
             background-size: contain;
         }
 
-        >button {
+        input[type="checkbox"].ng-invalid.ng-dirty::before{
+            background-image: url(../../../../public/assets/icons/contact/checkboxes/error.svg);
+            background-position: center;
+            background-size: contain;
+        }
+
+        form.ng-submitted input[type="checkbox"].ng-invalid::before{
+            background-image: url(../../../../public/assets/icons/contact/checkboxes/error.svg);
+            background-position: center;
+            background-size: contain;
+        }
+
+        >.submit-btn {
             justify-self: end;
+            cursor: not-allowed;
 
             @include all.desktop {
                 grid-area: 4/2/5/3;
                 margin-top: 0.3rem;
             }
+        }
+
+        &.ng-valid .submit-btn{
+            border-color: all.$primary-color;
+            color: all.$primary-color;
+            cursor: pointer;
         }
     }
     // #endregion
@@ -193,7 +224,7 @@ section {
 
         >img {
             height: 60px;
-            margin: all.$section-spacing;
+            margin: 2rem 0;
 
             @include all.desktop {
                 height: 70px;
@@ -208,5 +239,9 @@ section {
 }
 
 .checkbox-error-container {
-    padding: 0.2rem 0 0 1.5rem;
+    padding: 0.1rem 0 0 2.6rem;
+
+    @include all.desktop{
+        padding: 0.2rem 0 0 2rem;
+    }
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
@@ -13,16 +13,19 @@ import { TranslatePipe } from '@ngx-translate/core';
 /**
  * Provides the contact form section of the page.
  *
- * This component manages user input for the contact form and submits the data
- * to a backend endpoint via {@link HttpClient}. It supports a test mode in which
- * no HTTP request is sent.
+ * This component collects user input via a template-driven form and submits the
+ * payload to a backend endpoint using {@link HttpClient}. It also supports a
+ * test mode that simulates successful submission without performing a network
+ * request.
  *
  * @remarks
- * The form uses template-driven forms (`NgForm`). When `mailTest` is enabled,
- * submissions are handled locally without calling the backend.
+ * The submission state can be reflected in the UI via the `sent` flag.
+ * In case of an HTTP error, a localized error message is shown using
+ * {@link TranslateService}.
  */
 export class Contact {
   http = inject(HttpClient);
+  translate = inject(TranslateService);
 
   contactData = {
     name: '',
@@ -31,47 +34,48 @@ export class Contact {
     checked: false,
   };
 
-  mailTest: boolean = true;
+  mailTest: boolean = false;
   sent: boolean = false;
 
-  post = {
-    endPoint: 'https://sonja-sander.de/sendMail.php',
-    body: (payload: any) => JSON.stringify(payload),
-    options: {
-      headers: {
-        'Content-Type': 'text/plain',
-        responseType: 'text',
-      },
-    },
-  };
+  endPoint: string = 'https://sonja-sander.de/sendMail.php';
 
   /**
    * Handles the submission of the contact form.
    *
-   * If the form is valid and `mailTest` is disabled, the form data is sent to the
-   * configured backend endpoint via an HTTP POST request. After a successful
-   * submission, the form is reset.
+   * If the form is invalid, the submission is aborted. If test mode is enabled,
+   * the form is reset and the submission is marked as successful without
+   * sending a request.
    *
-   * When `mailTest` is enabled, the form is only reset without performing any
-   * network request.
+   * Otherwise, the form data is posted as JSON to the configured endpoint.
+   * On success, the form is reset and the submission is marked as sent. On
+   * failure, an error is logged and a localized error message is shown.
    *
-   * @param ngForm - The Angular form instance representing the contact form.
+   * @param form - The template-driven form instance representing the contact form.
    */
-  onSubmit(ngForm: NgForm): void {
+  onSubmit(form: NgForm): void {
+    if (!form.valid) return;
+
     this.sent = false;
-    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-      this.http.post(this.post.endPoint, this.post.body(this.contactData)).subscribe({
+
+    if (this.mailTest) {
+      form.resetForm();
+      this.sent = true;
+      return;
+    }
+
+    this.http
+      .post(this.endPoint, this.contactData, {
+        headers: { 'Content-Type': 'application/json' },
+      })
+      .subscribe({
         next: () => {
           this.sent = true;
-          ngForm.resetForm();
+          form.resetForm();
         },
-        error: (error) => {
-          console.error(error);
+        error: (err) => {
+          console.error('Mail send failed:', err);
+          alert(this.translate.instant('contact.sendError'));
         },
-        complete: () => console.info('send post complete'),
       });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      ngForm.resetForm();
-    }
   }
 }

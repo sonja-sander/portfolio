@@ -120,6 +120,7 @@
             "error": "Bitte akzeptieren Sie die Datenschutzerklärung."
         },
         "submit": "Senden",
+        "sendError": "Mail konnte nicht gesendet werden. Bitte später erneut versuchen.",
         "aria": {
             "name": "Name eingeben",
             "email": "E-Mail-Adresse eingeben",

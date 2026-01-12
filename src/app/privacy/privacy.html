@@ -3,13 +3,9 @@
 <div class="content-wrapper">
     <main class="layout">
         <article class="legal-page-article">
-        <a routerLink="" aria-label="{{ 'privacy.aria.back' | translate }}">
-            <img
-            src="assets/icons/arrow-left.svg"
-            alt=""
-            aria-hidden="true"
-            />
-        </a>
+        <button (click)="back()" aria-label="{{ 'privacy.aria.back' | translate }}">
+            <img src="assets/icons/arrow-left.svg" alt="" aria-hidden="true">
+        </button>
 
         <h1>{{ 'privacy.title' | translate }}</h1>
 

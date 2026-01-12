@@ -1,51 +1,41 @@
 @use "../../../../public/assets/styles/all-styles.scss" as all;
 
-.layout {
-    @include all.desktop {
-        display: block;
-    }
-}
-
 section {
-    @include all.flex($fd: column, $jc: flex-start);
-    height: calc(100dvh - all.$navbar-height);
+    @include all.grid($rows: repeat(3, auto), $columns: 6% 1fr 6%);
     max-width: 1440px;
 
-    @media (min-width: 600px) {
-        justify-content: center;
-    }
-
     @include all.desktop {
-        @include all.grid($rows: 1fr 1fr 1fr, $columns: 8% 42% 42% 8%);
+        @include all.grid($rows: 1fr 1fr 1fr, $columns: 5% 45% 45% 5%);
+        height: 100%;
+        max-height: 100%;
     }
 
     .images-wrapper {
-        padding-top: 2rem;
+        grid-area: 1/2/2/3;
 
         @include all.desktop {
-            grid-area: 2/2/5/3;
-            align-self: end;
+            grid-area: 1/2/4/3;
             @include all.grid();
-            margin-bottom: -18px;
         }
 
         .bg-shape-wrapper {
             grid-area: 1/1/2/2;
-            place-self: center;
             pointer-events: none;
             @include all.grid();
 
             >.bg-shape {
-                grid-area: 1/1;
-                height: clamp(250px, 60dvh, 600px);
+                grid-area: 1/1/2/2;
+                height: auto;
+                max-height: 95%;
                 width: auto;
-                max-width: 100%;
+                max-width: 95%;
                 object-fit: contain;
+                align-self: end;
+                justify-self: center;
                 transition: opacity 400ms ease, transform 400ms ease;
-                margin-bottom: -18px;
 
-                @include all.desktop {
-                    height: 100%;
+                @include all.bigscreen{
+                    max-width: 100%;
                 }
             }
 
@@ -55,26 +45,41 @@ section {
         }
 
         >.img-wrapper {
-            >.photo {
-                height: clamp(300px, 50dvh, 700px);
-                width: auto;
-                max-width: 100%;
-                object-fit: contain;
-                place-self: center;
-            }
+            @include all.grid();
 
             @include all.desktop {
                 grid-area: 1/1/2/2;
-                @include all.grid();
-                align-self: end;
+                
+            }
 
-                >.photo {
-                    height: 100%;
+            >.photo {
+                padding-top: 1.6rem;
+                justify-self: center;
+                object-fit: contain;
+                
+                @include all.notebook{
+                    height: 60dvh;
+                    width: 100%;
+                }
+
+                @include all.mobile{
+                    width: 100%;
+                    height: 50dvh;
+                }
+
+                @include all.desktop{
+                    height: auto;
+                    max-height: 95%;
                     width: auto;
-                    max-width: 100%;
+                    max-width: 95%;
                     object-fit: contain;
                     align-self: end;
                     justify-self: center;
+                    padding-top: 0;
+                }
+
+                @include all.bigscreen{
+                    max-width: 100%;
                 }
             }
         }
@@ -139,11 +144,13 @@ section {
     }
 
     >.title {
+        grid-area: 2/2/3/3;
         text-align: center;
         place-self: center;
 
         @include all.desktop {
             grid-area: 2/3/3/4;
+            place-self: center;
         }
 
         h1 {
@@ -161,13 +168,16 @@ section {
     }
 
     >a {
-        >img {
-            height: 80px;
-        }
+        grid-area: 3/2/4/3;
+        place-self: start center;
 
         @include all.desktop {
-            place-self: center;
             grid-area: 3/3/4/4;
+            place-self: center;
+        }
+
+        >img {
+            height: 80px;
         }
     }
 }

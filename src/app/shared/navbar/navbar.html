@@ -88,6 +88,7 @@
                     <button
                         type="button"
                         (click)="changeLang('de')"
+                        (click)="closeDialog(menuDialog)"
                         [class.is-active]="activeLang === 'de'"
                         aria-label="{{ 'nav.aria.langDe' | translate }}"
                         >
@@ -96,6 +97,7 @@
                     <button
                         type="button"
                         (click)="changeLang('en')"
+                        (click)="closeDialog(menuDialog)"
                         [class.is-active]="activeLang === 'en'"
                         aria-label="{{ 'nav.aria.langEn' | translate }}"
                         >

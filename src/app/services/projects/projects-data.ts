@@ -35,8 +35,8 @@ export class ProjectsData {
       wasGroupProject: false,
       groupWorkKey: 'projects.project-1.groupWork',
       learningsKey: 'projects.project-1.learnings',
-      liveTestUrl: '',
-      gitHubUrl: '',
+      liveTestUrl: 'https://pollo-loco.sonja-sander.de/',
+      gitHubUrl: 'https://github.com/sonja-sander/el-pollo-loco',
     },
     {
       id: 2,

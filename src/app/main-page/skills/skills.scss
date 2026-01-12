@@ -2,7 +2,7 @@
 
 section {
     @include all.grid($row-gap: all.$gap-spacing, $ji: center, $ai: center);
-    padding: 7rem 0 3rem;
+    padding: 4rem 0 3rem;
     text-align: center;
 
     @include all.desktop {

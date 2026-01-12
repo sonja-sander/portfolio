@@ -7,7 +7,7 @@
     </address>
     <p>{{'contact.description' | translate}}</p>
     <h3 class="mobile-only">{{'contact.subtitle' | translate}}</h3>
-    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
         <div class="input-container name-container">
             <label for="name">
                 @if (!name.valid && name.touched && !name.disabled) {
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="checkbox-error-container">
-            @if (check.invalid && (check.touched || contactForm.submitted)) {
+            @if (check.invalid && (check.dirty || contactForm.submitted)) {
                 <span class="error">
                 {{ 'contact.input-checkbox.error' | translate }}
                 </span>
@@ -77,10 +77,10 @@
         </div>
         <div>
             @if (sent) {
-                <p>Danke! Deine Nachricht wurde gesendet.</p>
+                <p>Ihre Nachricht wurde erfolgreich gesendet.</p>
             }
         </div>
-        <button class="inactive-btn" type="submit">{{'contact.submit' | translate}}</button>
+        <button class="submit-btn inactive-btn" type="submit">{{'contact.submit' | translate}}</button>
     </form>
     <a class="icon-link" [routerLink]="['/']" fragment="hero" aria-label="{{ 'contact.aria.scrollTop' | translate }}">
         <img class="icon icon-normal" src="assets/icons/arrow-up.svg" alt="" aria-hidden="true">

@@ -15,7 +15,7 @@ footer {
         }
 
         .content {
-            @include all.flex($fd: column, $gap: 2rem);
+            @include all.flex($fd: column, $gap: 1rem);
 
             @include all.desktop {
                 @include all.grid($columns: 1fr 1fr 1fr, $ai: end);
@@ -26,6 +26,11 @@ footer {
 
                 @include all.desktop {
                     grid-area: 1/2/2/3;
+                }
+
+                >img{
+                    height: 65px;
+                    width: auto;
                 }
             }
 
@@ -41,12 +46,12 @@ footer {
                     @include all.flex($gap: 2.4rem);
 
                     @include all.desktop {
-                        @include all.flex($gap: 1rem);
+                        @include all.flex($gap: 0.8rem);
                     }
 
                     img {
-                        width: 24px;
-                        height: 24px;
+                        width: 30px;
+                        height: 30px;
                     }
                 }
             }

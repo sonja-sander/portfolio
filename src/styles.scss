@@ -111,19 +111,30 @@ a{
 // #region Legal pages
 .legal-page-article {
     padding: 5rem 0;
-    -webkit-hyphens: auto; 
     hyphens: auto;
 
     h1 {
+        font-size: 3rem; 
         padding: 0 0 16px;
+        font-weight: normal;
     }
     h2 {
+        font-size: 2rem; 
         margin: 24px 0 0;
+        font-weight: normal;
     }
-    h3,
-    h4 {
+    h3{
+        font-size: 1.8rem; 
         margin-top: 16px;
+        font-weight: normal;
     }
+
+    h4, h5, h6{
+        font-size: 1.6rem; 
+        margin-top: 16px;
+        font-weight: normal;
+    }
+
     ul {
         padding-left: 24px;
     }
@@ -185,8 +196,14 @@ app-navbar{
 }
 
 app-hero{
-    height: calc(100dvh - all.$navbar-height);
-    max-height: calc(100dvh - all.$navbar-height);
+    @include all.notebook{
+        height: calc(100dvh - all.$navbar-height);
+        max-height: calc(100dvh - all.$navbar-height);
+    }
+
+    @include all.desktop{
+        height: clamp(560px, calc(92dvh - all.$navbar-height), 860px);
+    }
 }
 
 .anchor{

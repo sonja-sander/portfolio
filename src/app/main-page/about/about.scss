@@ -5,12 +5,12 @@ $cycle: $slot * 3;
 
 section {
   @include all.grid($rows: auto auto auto, $columns: 6% 1fr 6%, $row-gap: all.$gap-spacing);
-  padding: 0rem 0;
+  padding: 3rem 0;
   text-align: center;
 
   @include all.desktop {
     margin-top: 1rem;
-    padding: 4rem 0 3rem;
+    padding: 5rem 0 3rem;
     @include all.grid($rows: auto auto,
       $columns: 15% 1fr 1fr 15%,
       $row-gap: 2rem,
